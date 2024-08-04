@@ -16,32 +16,28 @@ function User() {
         src="https://shkolafdorovka-r64.gosweb.gosuslugi.ru/netcat_files/9/167/avatar_5.png"
         alt="avatar"
       />
-      <div className={styles.user__container}>
-        {user ? (
+      {user ? (
+        <div className={styles.user__container}>
           <h2 className={styles.user__name}>
-            {`${user.first_name} ${user.last_name}`}{" "}
+            {`${user.first_name} ${user.last_name}`}
           </h2>
-        ) : (
-          ""
-        )}
-        {user ? <p className={styles.user__title}>{user.timezone}</p> : ""}
-        {user ? (
+          <p className={styles.user__title}>{user.timezone}</p>
           <Tag
             color="blue"
             style={{
               width: "max-content",
             }}
           >
-            {user.employment_type}`
+            {user.employment_type}
           </Tag>
-        ) : (
-          ""
-        )}
-        <h4 className={styles.user__title}>Позиция</h4>
-        {user ? <p className={styles.user__item}>{user.position}</p> : ""}
-        <h4 className={styles.user__title}>Грейд </h4>
-        {user ? <p className={styles.user__item}>{user.grade}</p> : ""}
-      </div>
+          <h4 className={styles.user__title}>Позиция</h4>
+          <p className={styles.user__item}>{user.position}</p>
+          <h4 className={styles.user__title}>Грейд</h4>
+          <p className={styles.user__item}>{user.grade}</p>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

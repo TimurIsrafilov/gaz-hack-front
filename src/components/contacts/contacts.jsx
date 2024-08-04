@@ -1,6 +1,5 @@
 import styles from "./contacts.module.css";
 
-// import tg from "../images/tg-icon.svg"
 import tg from "../../images/tg-icon.svg";
 import teams from "../../images/teams-icon.svg";
 import gira from "../../images/jira-icon.svg";
@@ -27,10 +26,10 @@ function Contacts() {
           <img src={tg} alt="иконка телеграмма" />
         </li>
         <li className={styles.contacts__item_icon}>
-          <img src={teams} alt="иконка телеграмма" />
+          <img src={teams} alt="иконка тимс" />
         </li>
         <li className={styles.contacts__item_icon}>
-          <img src={gira} alt="иконка телеграмма" />
+          <img src={gira} alt="иконка джира" />
         </li>
       </ul>
     </div>

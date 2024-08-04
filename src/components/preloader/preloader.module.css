@@ -1,0 +1,15 @@
+.preloader {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(31, 31, 31, 0.2);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.preloader__container {
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 120px;
+}

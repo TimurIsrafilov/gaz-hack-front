@@ -11,7 +11,6 @@ function Profile() {
       <User />
       <Contacts />
       <Skills />
-     
       <TeamProfile />
     </div>
   );

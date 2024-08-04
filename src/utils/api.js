@@ -1,5 +1,3 @@
-
-
 const BASE_URL = "https://hackathonproject.sytes.net/api/v1";
 
 const getResponse = (res) => {
@@ -8,8 +6,6 @@ const getResponse = (res) => {
   }
   return res.json();
 };
-
-
 
 export const getProfileInfo = () => {
   return fetch(`${BASE_URL}/users/me`, {
@@ -24,4 +20,3 @@ export const getProfileInfo = () => {
 };
 
 export default getProfileInfo;
-

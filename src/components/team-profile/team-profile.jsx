@@ -6,9 +6,7 @@ function TeamProfile() {
     <div className={styles.team_profile}>
       <div className={styles.team_profile__container}>
         <h3 className={styles.team_profile__title}>Активные продукты</h3>
-        <p className={styles.team_profile__title_link}>
-          Смотреть все
-        </p>
+        <p className={styles.team_profile__title_link}>Смотреть все</p>
       </div>
       <TeamCard />
     </div>

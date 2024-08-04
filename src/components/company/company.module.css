@@ -1,0 +1,10 @@
+.company {
+    width: 100vw;
+    height: calc(100vh - 92px)
+}
+
+@media screen and (max-width: 768px) {
+    .company {
+        height: calc(100vh - 194px)
+    }
+}
