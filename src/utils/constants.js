@@ -3,17 +3,14 @@ export const companyDiagram = {
     {
       name: "Компонента 1",
       id: 101,
-      departmentsId: [201, 202, 203, 204, 205, 206, 207],
     },
     {
       name: "Компонента 2",
       id: 102,
-      departmentsId: [201, 202, 203, 204, 205, 206, 207],
     },
     {
       name: "Компонента 3",
       id: 103,
-      departmentsId: [201, 202, 203, 204, 205, 206, 207],
     },
   ],
 
@@ -21,37 +18,37 @@ export const companyDiagram = {
     {
       name: "Дизайн",
       id: 201,
-      teamsId: [301, 302],
+      componentsId: [101, 102, 103],
     },
     {
       name: "Девелопмент",
       id: 202,
-      teamsId: [303, 304],
+      componentsId: [101, 102, 103],
     },
     {
       name: "Анализ",
       id: 203,
-      teamsId: [305, 306],
+      componentsId: [101, 102, 103],
     },
     {
       name: "Менеджмент",
       id: 204,
-      teamsId: [307, 308],
+      componentsId: [101, 102, 103],
     },
     {
       name: "Маркетинг",
       id: 205,
-      teamsId: [309, 310],
+      componentsId: [101, 102, 103],
     },
     {
       name: "HR",
       id: 206,
-      teamsId: [311, 312],
+      componentsId: [101, 102, 103],
     },
     {
       name: "Девопсы",
       id: 207,
-      teamsId: [313, 314],
+      componentsId: [101, 102, 103],
     },
   ],
 
@@ -59,22 +56,72 @@ export const companyDiagram = {
     {
       name: "Команда Дизайн 1",
       id: 301,
-      users: [401, 402, 403],
+      departmentId: 201,
     },
     {
       name: "Команда Дизайн 2",
       id: 302,
-      users: [404, 405, 406],
+      departmentId: 201,
     },
     {
       name: "Команда Девелопмент 1",
       id: 303,
-      usersId: [403, 405, 406],
+      departmentId: 202,
     },
     {
       name: "Команда Девелопмент 2",
       id: 304,
-      usersId: [404, 407, 408],
+      departmentId: 202,
+    },
+    {
+      name: "Команда Анализ 1",
+      id: 305,
+      departmentId: 203,
+    },
+    {
+      name: "Команда Анализ 2",
+      id: 306,
+      departmentId: 203,
+    },
+    {
+      name: "Команда Менеджмент 1",
+      id: 307,
+      departmentId: 204,
+    },
+    {
+      name: "Команда Менеджмент 2",
+      id: 308,
+      departmentId: 204,
+    },
+    {
+      name: "Команда Маркетинг 1",
+      id: 309,
+      departmentId: 205,
+    },
+    {
+      name: "Команда Маркетинг 2",
+      id: 310,
+      departmentId: 205,
+    },
+    {
+      name: "Команда HR 1",
+      id: 311,
+      departmentId: 206,
+    },
+    {
+      name: "Команда HR 2",
+      id: 312,
+      departmentId: 206,
+    },
+    {
+      name: "Команда Девопсы 1",
+      id: 313,
+      departmentId: 207,
+    },
+    {
+      name: "Команда Девопсы 2",
+      id: 314,
+      departmentId: 207,
     },
   ],
 };
