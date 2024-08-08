@@ -12,6 +12,8 @@
 .header__logo {
     margin: 0;
     padding: 0;
+    height: 40px;
+    width: 40px;
 }
 
 .header__menu_container {
@@ -56,7 +58,26 @@
     padding: 0;
 }
 
+.header__menu_link_active {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgba(22, 119, 255, 1);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 .header_profile_container {
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 0 0 20px;
+}
+
+.header_profile_container_active {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -74,11 +95,11 @@
     padding: 0;
 }
 
-.header_profile_photo_link {
-    text-decoration: none;
-}
-
 .header__profile_photo {
     margin: 0 0 0 8px;
     padding: 0;
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
 }

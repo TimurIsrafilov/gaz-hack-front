@@ -1,0 +1,86 @@
+.diagram__component {
+    display: flex;
+}
+
+.diagram__component_link_one {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 272px;
+    width: 272px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    color: rgba(245, 245, 245, 1);
+    background-color: rgba(47, 84, 235, 1);
+    border-radius: 50%;
+    border: 1px solid rgba(47, 84, 235, 1);
+    text-decoration: none;
+    margin: 0;
+    padding: 10px;
+    text-align: center
+}
+
+
+.diagram__component_link_two {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 168px;
+    width: 168px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    color: rgba(38, 38, 38, 1);
+    background-color: rgba(255, 122, 69, 1);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 122, 69, 1);
+    text-decoration: none;
+    margin: 0;
+    padding: 10px;
+    text-align: center
+}
+
+
+.diagram__component_link_three {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 128px;
+    width: 128px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    color: rgba(38, 38, 38, 1);
+    background-color: rgba(255, 122, 69, 0.5);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 122, 69, 0.5);
+    text-decoration: none;
+    margin: 0;
+    padding: 10px;
+    text-align: center
+}
+
+
+.diagram__component_link_fou {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    width: 64px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    color: rgba(38, 38, 38, 1);
+    background-color: rgba(255, 122, 69, 0.5);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 122, 69, 0.5);
+    text-decoration: none;
+    margin: 0;
+    padding: 10px;
+    text-align: center
+}

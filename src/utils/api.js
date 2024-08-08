@@ -8,7 +8,7 @@ const getResponse = (res) => {
 };
 
 export const getProfileInfo = () => {
-  return fetch(`${BASE_URL}/users/me`, {
+  return fetch(`${BASE_URL}/users/2`, {
     method: "GET",
     headers: {
       Accept: "application/json",

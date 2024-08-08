@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-import { selectUser } from "../../services/user/reducer";
-
 import { Tag } from "antd";
 
 import styles from "./skills.module.css";
+
+import { selectUser } from "../../services/user/reducer";
 
 function Skills() {
   const user = useSelector(selectUser);
