@@ -4,17 +4,94 @@ import { v4 as uuidv4 } from "uuid";
 
 import { companyStructure } from "../../utils/constants";
 import CatalogCard from "../../components/catalog-card/catalog-card";
+import FilterPanel from "../../components/filter-panel/filter-panel";
+import { useEffect, useState } from "react";
+import { Button } from "antd";
 
-const Catalog = () => {
+function Catalog() {
+  const [catalogCardsToShow, setcatalogCardsToShow] =
+    useState(companyStructure);
+
+  const [filterElements, setFilterElements] = useState(null);
+  const [isFilterOpened, setIsFilterOpened] = useState(true);
+
+  useEffect(() => {
+    if (filterElements == null) {
+      setcatalogCardsToShow(companyStructure);
+    } else {
+      const filteredCompanyStructure = companyStructure.filter(function (item) {
+        for (let key in filterElements) {
+          if (item[key] !== null && item[key] !== filterElements[key])
+            return false;
+        }
+        return true;
+      });
+
+      setcatalogCardsToShow(filteredCompanyStructure);
+    }
+  }, [filterElements]);
+
+  const onFullTimeChange = () => {
+    setFilterElements({ ...filterElements, employment_type: "Штатные" });
+  };
+
+  const onOutsourceChange = () => {
+    setFilterElements({ ...filterElements, employment_type: "Аутсорс" });
+  };
+
+  const handleGradeChange = (value) => {
+    setFilterElements({ ...filterElements, grade: value });
+  };
+
+  const handleLocationeChange = (value) => {
+    setFilterElements({ ...filterElements, timezone: value });
+  };
+
+  const handleDepartmentChange = (value) => {
+    setFilterElements({ ...filterElements, departmentId: value });
+  };
+
+  const handleFormReset = () => {
+    setcatalogCardsToShow(companyStructure);
+    setFilterElements(null);
+  };
+
+  const handleFormClose = () => {
+    setIsFilterOpened(false);
+  };
+
+  const handeleFiltersOpen = () => {
+    setIsFilterOpened(true);
+  };
+
   return (
     <div className={styles.catalog}>
-      <div className={styles.catalog__container}>
-        {companyStructure.map((item) => (
+      {isFilterOpened ? (
+        <FilterPanel
+          onFullTimeChange={onFullTimeChange}
+          onOutsourceChange={onOutsourceChange}
+          handleGradeChange={handleGradeChange}
+          handleLocationeChange={handleLocationeChange}
+          handleDepartmentChange={handleDepartmentChange}
+          handleFormReset={handleFormReset}
+          handleFormClose={handleFormClose}
+        />
+      ) : (
+        <Button
+          type="primary"
+          onClick={handeleFiltersOpen}
+          className={styles.catalog__open_button}
+        >
+          Фильтры
+        </Button>
+      )}
+      <div className={styles.catalog__grid_container}>
+        {catalogCardsToShow.map((item) => (
           <CatalogCard item={item} key={uuidv4()} />
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default Catalog;

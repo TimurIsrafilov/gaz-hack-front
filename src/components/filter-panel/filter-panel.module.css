@@ -1,0 +1,65 @@
+.filter_panel {
+    display: flex;
+    flex-direction: column;
+    width: 336px;
+    padding: 24px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.filter_panel_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter_panel_title_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter_panel_title {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    color: rgba(31, 31, 31, 1);
+    margin: 0;
+    padding: 0;
+}
+
+.filter_panel_button_close {
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+}
+
+.filter_panel_point {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    color: rgba(31, 31, 31, 1);
+    margin: 24px 0 24px 0;
+    padding: 0;
+}
+
+.filter_panel_checkbox {
+    margin: 0;
+    padding: 0;
+}
+
+.filter_panel_select {
+    width: 288px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.filter_panel_button_reset {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    align-self: center;
+    width: 288px;
+    height: 40px;
+}

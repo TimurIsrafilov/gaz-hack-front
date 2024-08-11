@@ -1,29 +1,50 @@
+// import { useRef } from "react";
+// import { useDrag } from "react-dnd";
+
 import { Link } from "react-router-dom";
 import styles from "./diagram-component.module.css";
 
 import { Handle, Position } from "@xyflow/react";
 
-function DiagramComponent({ data }) {
-  let x = 0;
-  if (data.id[0] === '1') {
-    x = styles.diagram__component_link_one;
-  } else if (data.id[0] === '2') {
-    x = styles.diagram__component_link_two;
-  } else if (data.id[0] === '3') {
-    x = styles.diagram__component_link_three;
-  } else if (data.id[0] === '4') {
-    x = styles.diagram__component_link_four;
+function DiagramComponent(props) {
+  // const ref = useRef(null);
+
+  // const {data} = props;
+
+  // const [{ isDrag }, dragRef] = useDrag({
+  //   type: "node",
+  //   item: props.data,
+  //   collect: (monitor) => ({
+  //     isDrag: monitor.isDragging(),
+  //   }),
+  // });
+
+  let componentStyle = 0;
+  if (props.data.id[0] === "1") {
+    componentStyle = styles.diagram__component_link_one;
+  } else if (props.data.id[0] === "2") {
+    componentStyle = styles.diagram__component_link_two;
+  } else if (props.data.id[0] === "3") {
+    componentStyle = styles.diagram__component_link_three;
+  } else if (props.data.id[0] === "4") {
+    componentStyle = styles.diagram__component_link_four;
   }
 
   return (
-    <div className={styles.diagram__component}>
-      <Handle type="source" position={Position.Top} />
-      <Link to="/" className={x}>
-        {data.name}
-      </Link>
-      <Handle type="target" position={Position.Bottom} />
-    </div>
-  );
+    // !isDrag && (
+      <div
+      //  ref={dragRef} 
+       className={styles.diagram__component}>
+        <Handle type="source" position={Position.Bottom} />
+        {/* <Link to="/" className={componentStyle}>
+        {props.data.name}
+      </Link> */}
+
+        <div className={componentStyle}>{props.data.name}</div>
+        <Handle type="target" position={Position.Top} />
+      </div>
+    )
+  // );
 }
 
 export default DiagramComponent;

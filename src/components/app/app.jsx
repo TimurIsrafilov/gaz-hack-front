@@ -18,6 +18,7 @@ import Catalog from "../../pages/catalog/catalog";
 import Preloader from "../preloader/preloader";
 
 import { loadUser } from "../../services/user/actions";
+import Sidebar from "../../pages/diagram/Sidebar";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
     <div className={styles.page}>
       {isLoading && <Preloader />}
       <Header />
+      <Sidebar/>
 
       <Routes>
         <Route path="/profile" element={<Profile />} />

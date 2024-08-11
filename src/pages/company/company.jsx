@@ -12,6 +12,7 @@ import styles from "./company.module.css";
 
 import { companyStructure } from "../../utils/constants";
 import CompanyCard from "../../components/company-card/company-card";
+import FilterPanel from "../../components/filter-panel/filter-panel";
 
 const Company = () => {
   const nodeTypes = {
@@ -93,6 +94,7 @@ const Company = () => {
         <Controls />
         <MiniMap />
       </ReactFlow>
+
     </div>
   );
 };

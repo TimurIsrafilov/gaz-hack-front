@@ -4,7 +4,7 @@ export const companyDiagram = {
       name: "Компонента 1",
       id: 101,
       // component_lead: id, // number
-      teamId: [301],
+      teamId: [305, 303, 301],
       isActive: true, // boolean
       type: "mobile", // options: mobile, web, back
     },
@@ -12,7 +12,7 @@ export const companyDiagram = {
       name: "Компонента 2",
       id: 102,
       // component_lead: id, // number
-      teamId: [302],
+      teamId: [302, 304, 313],
       isActive: true, // boolean
       type: "mobile", // options: mobile, web, back
     },
@@ -20,7 +20,7 @@ export const companyDiagram = {
       name: "Компонента 3",
       id: 103,
       // component_lead: id, // number
-      teamId: [303],
+      teamId: [306, 314],
       isActive: true, // boolean
       type: "mobile", // options: mobile, web, back
     },
@@ -98,14 +98,14 @@ export const companyDiagram = {
       name: "Команда Девелопмент 1",
       id: 303,
       // team_lead: id, // number
-      componentId: [103],
+      componentId: [101],
       usersId: [404, 407, 408],
     },
     {
       name: "Команда Девелопмент 2",
       id: 304,
       // team_lead: id, // number
-      componentId: [101],
+      componentId: [102],
       usersId: [404, 407, 408],
     },
     {
@@ -119,49 +119,49 @@ export const companyDiagram = {
       name: "Команда Анализ 2",
       id: 306,
       // team_lead: id, // number
-      componentId: [101],
+      componentId: [103],
       usersId: [404, 407, 408],
     },
     {
       name: "Команда Менеджмент 1",
       id: 307,
       // team_lead: id, // number
-      componentId: [101],
+      componentId: null,
       usersId: [404, 407, 408],
     },
     {
       name: "Команда Менеджмент 2",
       id: 308,
       // team_lead: id, // number
-      componentId: [101],
+      componentId: null,
       usersId: [404, 407, 408],
     },
     {
       name: "Команда Маркетинг 1",
       id: 309,
       // team_lead: id, // number
-      componentId: [101],
+      componentId: null,
       usersId: [404, 407, 408],
     },
     {
       name: "Команда Маркетинг 2",
       id: 310,
       // team_lead: id, // number
-      componentId: [101],
+      componentId: null,
       usersId: [404, 407, 408],
     },
     {
       name: "Команда HR 1",
       id: 311,
       // team_lead: id, // number
-      componentId: [101],
+      componentId: null,
       usersId: [404, 407, 408],
     },
     {
       name: "Команда HR 2",
       id: 312,
       // team_lead: id, // number
-      componentId: [101],
+      componentId: null,
       usersId: [404, 407, 408],
     },
     {
@@ -175,7 +175,7 @@ export const companyDiagram = {
       name: "Команда Девопсы 2",
       id: 314,
       // team_lead: id, // number
-      componentId: [101],
+      componentId: [102],
       usersId: [404, 407, 408],
     },
   ],
@@ -192,9 +192,10 @@ export const companyStructure = [
     grade: "B",
     level: 1,
     teamId: null,
+    departmentId: 201,
     boss: null,
     town: "Москва",
-    employment_type: "Full-time",
+    employment_type: "Штатные",
     timezone: "GMT",
     contacts: {
       link: [
@@ -213,13 +214,14 @@ export const companyStructure = [
     photo:
       "https://avatars.mds.yandex.net/i?id=2f942270d036dd442f20f4d10aa7504279b0cbbb-4577690-images-thumbs&n=13",
     position: "Дев-хэд",
-    grade: "B",
+    grade: "A",
     level: 2,
     teamId: null,
+    departmentId: 202,
     boss: 401,
     town: "Москва",
-    employment_type: "Full-time",
-    timezone: "GMT",
+    employment_type: "Аутсорс",
+    timezone: "GMT1",
     contacts: {
       link: [
         "https://www.ao.com/",
@@ -240,10 +242,11 @@ export const companyStructure = [
     grade: "B",
     level: 3,
     teamId: 303,
+    departmentId: 203,
     boss: 402,
     town: "Москва",
-    employment_type: "Full-time",
-    timezone: "GMT",
+    employment_type: "Штатные",
+    timezone: "GMT2",
     contacts: {
       link: [
         "https://www.ao.com/",
@@ -261,13 +264,14 @@ export const companyStructure = [
     photo:
       "https://avatars.mds.yandex.net/i?id=2f942270d036dd442f20f4d10aa7504279b0cbbb-4577690-images-thumbs&n=13",
     position: "Дев-лид-2",
-    grade: "B",
+    grade: "C",
     level: 3,
     teamId: 304,
+    departmentId: 204,
     boss: 402,
     town: "Москва",
-    employment_type: "Full-time",
-    timezone: "GMT",
+    employment_type: "Аутсорс",
+    timezone: "GMT2",
     contacts: {
       link: [
         "https://www.ao.com/",
@@ -288,10 +292,11 @@ export const companyStructure = [
     grade: "B",
     level: 4,
     teamId: 303,
+    departmentId: 205,
     boss: 403,
     town: "Москва",
-    employment_type: "Full-time",
-    timezone: "GMT",
+    employment_type: "Аутсорс",
+    timezone: "GMT3",
     contacts: {
       link: [
         "https://www.ao.com/",
@@ -312,10 +317,11 @@ export const companyStructure = [
     grade: "B",
     level: 4,
     teamId: 303,
+    departmentId: 206,
     boss: 403,
     town: "Москва",
-    employment_type: "Full-time",
-    timezone: "GMT",
+    employment_type: "Штатные",
+    timezone: "GMT3",
     contacts: {
       link: [
         "https://www.ao.com/",
@@ -336,10 +342,11 @@ export const companyStructure = [
     grade: "B",
     level: 4,
     teamId: 303,
+    departmentId: 207,
     boss: 404,
     town: "Москва",
-    employment_type: "Full-time",
-    timezone: "GMT",
+    employment_type: "Аутсорс",
+    timezone: "GMT3",
     contacts: {
       link: [
         "https://www.ao.com/",
@@ -360,10 +367,11 @@ export const companyStructure = [
     grade: "B",
     level: 4,
     teamId: 303,
+    departmentId: 202,
     boss: 404,
     town: "Москва",
-    employment_type: "Full-time",
-    timezone: "GMT",
+    employment_type: "Штатные",
+    timezone: "GMT5",
     contacts: {
       link: [
         "https://www.ao.com/",
@@ -387,7 +395,7 @@ export const userStructure = {
   bossId: 1,
   teamId: 1,
   componentId: 1,
-  employment_type: "Полная занятость",
+  employment_type: "Аутсорс",
   timezone: "Poland",
   town: "Москва",
   foreign_languages: ["Японский", "Английский"],
@@ -403,3 +411,5 @@ export const userStructure = {
     phones: ["1111111111", "22222222222"],
   },
 };
+
+
