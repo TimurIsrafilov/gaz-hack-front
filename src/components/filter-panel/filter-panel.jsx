@@ -114,7 +114,7 @@ function FilterPanel(props) {
         <Form.Item name={"Все грейды"}>
           <Select
             className={styles.filter_panel_select}
-            defaultValue="Все грейды"
+            initialvalues="Все грейды"
             onChange={props.handleGradeChange}
             options={optionGrades}
           />
@@ -123,7 +123,7 @@ function FilterPanel(props) {
         <Form.Item name={"Все локации"}>
           <Select
             className={styles.filter_panel_select}
-            defaultValue="Все локации"
+            initialvalues="Все локации"
             onChange={props.handleLocationeChange}
             options={optionTimezones}
           />
@@ -132,7 +132,7 @@ function FilterPanel(props) {
         <Form.Item name={"Все отделы"}>
           <Select
             className={styles.filter_panel_select}
-            defaultValue="Все отделы"
+            initialvalues="Все отделы"
             onChange={props.handleDepartmentChange}
             options={optionDepartments}
           />

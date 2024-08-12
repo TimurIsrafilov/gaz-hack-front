@@ -1,52 +1,58 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import styles from "./company-card.module.css";
 
-import { v4 as uuidv4 } from "uuid";
+import { Button } from "antd";
 
 import { MoreOutlined } from "@ant-design/icons";
 
-import tg from "../../images/tg-icon.svg";
-import teams from "../../images/teams-icon.svg";
-import gira from "../../images/jira-icon.svg";
 import { Handle, Position } from "@xyflow/react";
 
+import Links from "../links/links";
+
+import { loadUser } from "../../services/user/actions";
+
 function CompanyCard({ data }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleUserShow = () => {
+    dispatch(loadUser(data.id));
+    navigate(`users/${data.id}`, { replace: true });
+  };
+
   return (
-    <div className={styles.company__team_card}>
+    <div className={styles.company__card}>
       <Handle type="source" position={Position.Top} />
-      <div className={styles.company__team_card_container}>
+      <div className={styles.company__card_container}>
         <img
-          className={styles.company__team_card_user_avatar}
+          className={styles.company__card_user_avatar}
           src={data.photo}
           alt="avatar"
         />
-        <div className={styles.company__team_card_user_container}>
-          <Link to="/" className={styles.company__team_card__link}>
+        <div className={styles.company__card_user_container}>
+          <Button
+            htmlType="button"
+            type="link"
+            // ghost
+            onClick={handleUserShow}
+            className={styles.company__card_link}
+          >
             Перейти в профиль
-          </Link>
-          <p className={styles.company__team_card_user_position}>
-            {data.position}
-          </p>
-          <p className={styles.company__team_card_user_employment}>
+          </Button>
+          <p className={styles.company__card_user_position}>{data.position}</p>
+          <p className={styles.company__card_user_employment}>
             {data.employment_type}
           </p>
         </div>
-        <MoreOutlined className={styles.company__team_card__dots} />
+        <MoreOutlined className={styles.company__card_dots} />
       </div>
-      <h4 className={styles.company__team_card_user_name}>
+      <h4 className={styles.company__card_user_name}>
         {`${data.first_name} ${data.last_name}`}
       </h4>
-      <p className={styles.company__team_card_user_timezone}>{data.timezone}</p>
-      <ul className={styles.company__team_card__icon_container}>
-        {data.contacts.map((item) => (
-          <li className={styles.company__team_card__item_icon} key={uuidv4()}>
-            <Link to={item}>
-              <img src={tg} alt="иконка телеграмма" />
-            </Link>
-          </li>
-        ))}
-      </ul>
-
+      <p className={styles.company__card_user_timezone}>{data.timezone}</p>
+      <Links links={data.contacts} />
       <Handle type="target" position={Position.Bottom} />
     </div>
   );

@@ -8,10 +8,12 @@ import styles from "./header.module.css";
 import gaz_logo from "../../images/gaz_logo.svg";
 
 import { selectUser } from "../../services/user/reducer";
+import { userStructure } from "../../utils/constants";
 
 function Header() {
   const { Search } = Input;
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
+  const user = userStructure;
 
   return (
     <div className={styles.header}>

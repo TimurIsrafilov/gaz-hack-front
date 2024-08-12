@@ -8,6 +8,11 @@
     padding: 24px;
 }
 
+.team_card__container {
+    display: flex;
+    flex-direction: column;
+}
+
 .team_card__title {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 14px;
@@ -30,6 +35,9 @@
 
 .team_card__team_container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1
 }
 
 .team_card__team_link {
@@ -40,4 +48,29 @@
     color: rgba(22, 119, 255, 1);
     margin: 0;
     padding: 0;
+}
+
+.team_card__users_container {
+    display: flex;
+    position: relative;
+}
+
+.team_card__users_picture_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.team_card__users_picture {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.team_card__users_number {
+    position: absolute;
 }

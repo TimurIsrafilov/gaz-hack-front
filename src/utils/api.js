@@ -7,8 +7,8 @@ const getResponse = (res) => {
   return res.json();
 };
 
-export const getProfileInfo = () => {
-  return fetch(`${BASE_URL}/users/2`, {
+export const getProfileInfo = (userId) => {
+  return fetch(`${BASE_URL}/users/${userId}`, {
     method: "GET",
     headers: {
       Accept: "application/json",

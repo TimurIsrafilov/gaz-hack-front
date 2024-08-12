@@ -1,18 +1,16 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "./contacts.module.css";
 
-import tg from "../../images/tg-icon.svg";
-import teams from "../../images/teams-icon.svg";
-import gira from "../../images/jira-icon.svg";
-
 import { selectUser } from "../../services/user/reducer";
+import Links from "../links/links";
+import { userStructure } from "../../utils/constants";
 
 function Contacts() {
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
+  const user = userStructure;
 
   return (
     <div className={styles.contacts}>
@@ -36,26 +34,7 @@ function Contacts() {
             ))}
           </ul>
           <h4 className={styles.contacts__menu__section_title}>Ссылки</h4>
-          <ul className={styles.contacts__icon_container}>
-            <Link
-              to={user.contacts.links[0]}
-              className={styles.contacts__item_icon}
-            >
-              <img src={tg} alt="иконка телеграмма" />
-            </Link>
-            <Link
-              to={user.contacts.links[1]}
-              className={styles.contacts__item_icon}
-            >
-              <img src={teams} alt="иконка тимс" />
-            </Link>
-            <Link
-              to={user.contacts.links[2]}
-              className={styles.contacts__item_icon}
-            >
-              <img src={gira} alt="иконка джира" />
-            </Link>
-          </ul>
+          <Links links={user.contacts.links} />
         </div>
       ) : (
         ""

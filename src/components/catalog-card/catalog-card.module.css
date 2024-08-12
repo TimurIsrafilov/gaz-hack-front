@@ -40,25 +40,13 @@
     padding: 0;
 }
 
-
-.catalog__card__link {
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    color: rgba(64, 150, 255, 1);
-    text-decoration: none;
-    margin: 8px 0 4px 0;
-    padding: 0;
-}
-
-.catalog__card_user_position {
+.catalog__card_user_timezone {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     color: rgba(140, 140, 140, 1);
-    margin: 0;
+    margin: 10px 0 0 0;
     padding: 0;
 }
 
@@ -68,31 +56,42 @@
     font-style: normal;
     font-weight: 400;
     color: rgba(140, 140, 140, 1);
-    margin: 0;
+    margin: 4px 0 10px 0;
     padding: 0;
 }
 
-.catalog__card__dots {
-    height: 2em;
-    color: rgba(140, 140, 140, 1);
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-}
-
-
-
-
-
-.catalog__card__icon_container {
+.catalog__card_user_links {
     display: flex;
-    list-style-type: none;
-    margin: 16px 0 0 0;
+    justify-content: space-between;
+}
+
+.catalog__card_link {
+    height: 32px;
+    width: 150px;
+    margin: 0;
     padding: 0;
 }
 
-.catalog__card__item_icon {
-    cursor: pointer;
-    margin: 0 8px 0 0;
+.catalog__divider {
+    border: 1px solid rgba(217, 217, 217, 1);
+}
+
+.catalog__card_user_position_label {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgba(140, 140, 140, 1);
+    margin: 0 0 6px 0;
+    padding: 0;
+}
+
+.catalog__card_user_position {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgba(31, 31, 31, 1);
+    margin: 0;
     padding: 0;
 }

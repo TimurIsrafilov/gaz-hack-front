@@ -6,9 +6,11 @@ import { Tag } from "antd";
 import styles from "./skills.module.css";
 
 import { selectUser } from "../../services/user/reducer";
+import { userStructure } from "../../utils/constants";
 
 function Skills() {
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
+  const user = userStructure;
 
   return (
     <div className={styles.skills}>

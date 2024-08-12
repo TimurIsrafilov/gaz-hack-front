@@ -8,15 +8,17 @@
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 768px) {
-    .user {
-        flex-direction: column;
-    }
+
+
+.user__container {
+    display: flex;
 }
 
-.user_container {
-    display: flex;
-    flex-direction: column;
+@media screen and (max-width: 768px) {
+
+    .user__container {
+        flex-direction: column;
+    }
 }
 
 .user__avatar {
@@ -24,16 +26,20 @@
     width: 284px;
     object-fit: cover;
     border-radius: 50%;
+    margin: 0;
+    padding: 0;
 }
 
 @media screen and (max-width: 768px) {
     .user__avatar {
         height: 204px;
         width: 204px;
+        margin: 0 0 20px 0;
+        padding: 0;
     }
 }
 
-.user__container {
+.user__data_container {
     display: flex;
     flex-direction: column;
     margin: 0 0 0 32px;

@@ -5,17 +5,18 @@ import { Tag } from "antd";
 import styles from "./user.module.css";
 
 import { selectUser } from "../../services/user/reducer";
+import { userStructure } from "../../utils/constants";
 
 function User() {
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
+  const user = userStructure;
 
   return (
     <div className={styles.user}>
       {user ? (
         <div className={styles.user__container}>
           <img className={styles.user__avatar} src={user.photo} alt="avatar" />
-
-          <div className={styles.user__container}>
+          <div className={styles.user__data_container}>
             <h2 className={styles.user__name}>
               {`${user.first_name} ${user.last_name}`}
             </h2>

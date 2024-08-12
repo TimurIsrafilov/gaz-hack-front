@@ -1,4 +1,4 @@
-.company__team_card {
+.company__card {
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -10,38 +10,32 @@
     width: 295;
 }
 
-.company__team_card_container {
+.company__card_container {
     display: flex;
     align-items: flex-start;
     margin: 0 0 16px 0;
     padding: 0;
 }
 
-.company__team_card_user_avatar {
+.company__card_user_avatar {
     height: 64px;
     width: 64px;
     border-radius: 50%;
 }
 
-.company__team_card_user_container {
+.company__card_user_container {
     display: flex;
     flex-direction: column;
     margin: 0 10px 0 10px;
     padding: 0;
 }
 
-.company__team_card__link {
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    color: rgba(64, 150, 255, 1);
-    text-decoration: none;
-    margin: 8px 0 4px 0;
+.company__card_link {
+    margin: 0;
     padding: 0;
 }
 
-.company__team_card_user_position {
+.company__card_user_position {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -51,7 +45,7 @@
     padding: 0;
 }
 
-.company__team_card_user_employment {
+.company__card_user_employment {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 12px;
     font-style: normal;
@@ -61,7 +55,7 @@
     padding: 0;
 }
 
-.company__team_card__dots {
+.company__card_dots {
     height: 2em;
     color: rgba(140, 140, 140, 1);
     cursor: pointer;
@@ -69,7 +63,7 @@
     padding: 0;
 }
 
-.company__team_card_user_name {
+.company__card_user_name {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 16px;
     font-style: normal;
@@ -79,25 +73,12 @@
     padding: 0;
 }
 
-.company__team_card_user_timezone {
+.company__card_user_timezone {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     color: rgba(140, 140, 140, 1);
-    margin: 0;
-    padding: 0;
-}
-
-.company__team_card__icon_container {
-    display: flex;
-    list-style-type: none;
-    margin: 16px 0 0 0;
-    padding: 0;
-}
-
-.company__team_card__item_icon {
-    cursor: pointer;
-    margin: 0 8px 0 0;
+    margin: 0 0 10px 0;
     padding: 0;
 }

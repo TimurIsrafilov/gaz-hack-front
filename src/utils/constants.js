@@ -77,7 +77,9 @@ export const companyDiagram = {
       id: 301,
       // team_lead: id, // number
       componentId: [101],
-      usersId: [404, 406, 407],
+      usersId: [401, 402, 403],
+      // usersId: [401, 402, 403, 404],
+      // usersId: [401, 402, 403, 404, 405],
       // departmentId: id, // number
       performance: "", // описание
       description: "", // описание
@@ -191,6 +193,7 @@ export const companyStructure = [
     position: "SEO",
     grade: "B",
     level: 1,
+    componentId: 101,
     teamId: null,
     departmentId: 201,
     boss: null,
@@ -198,10 +201,10 @@ export const companyStructure = [
     employment_type: "Штатные",
     timezone: "GMT",
     contacts: {
-      link: [
-        "https://www.ao.com/",
-        "https://www.aokjkjh.com/",
-        "https://www.aokjkjh.com/",
+      links: [
+        "https://telegram.org",
+        "https://myteam.mail.ru/webim",
+        "https://www.atlassian.com/ru/software/jira",
       ],
       email: ["eleonora_1985@example.com", "eleohjjkgnora_1985@example.com"],
       phone: ["+7 (691) 654-2862", "+7 (691) 654-8962"],
@@ -216,6 +219,7 @@ export const companyStructure = [
     position: "Дев-хэд",
     grade: "A",
     level: 2,
+    componentId: 101,
     teamId: null,
     departmentId: 202,
     boss: 401,
@@ -223,10 +227,10 @@ export const companyStructure = [
     employment_type: "Аутсорс",
     timezone: "GMT1",
     contacts: {
-      link: [
-        "https://www.ao.com/",
-        "https://www.aokjkjh.com/",
-        "https://www.aokjkjh.com/",
+      links: [
+        "https://telegram.org",
+        "https://myteam.mail.ru/webim",
+        "https://www.atlassian.com/ru/software/jira",
       ],
       email: ["eleonora_1985@example.com", "eleohjjkgnora_1985@example.com"],
       phone: ["+7 (691) 654-2862", "+7 (691) 654-8962"],
@@ -241,6 +245,7 @@ export const companyStructure = [
     position: "Дев-лид-1",
     grade: "B",
     level: 3,
+    componentId: 102,
     teamId: 303,
     departmentId: 203,
     boss: 402,
@@ -248,10 +253,10 @@ export const companyStructure = [
     employment_type: "Штатные",
     timezone: "GMT2",
     contacts: {
-      link: [
-        "https://www.ao.com/",
-        "https://www.aokjkjh.com/",
-        "https://www.aokjkjh.com/",
+      links: [
+        "https://telegram.org",
+        "https://myteam.mail.ru/webim",
+        "https://www.atlassian.com/ru/software/jira",
       ],
       email: ["eleonora_1985@example.com", "eleohjjkgnora_1985@example.com"],
       phone: ["+7 (691) 654-2862", "+7 (691) 654-8962"],
@@ -266,6 +271,7 @@ export const companyStructure = [
     position: "Дев-лид-2",
     grade: "C",
     level: 3,
+    componentId: 103,
     teamId: 304,
     departmentId: 204,
     boss: 402,
@@ -273,10 +279,10 @@ export const companyStructure = [
     employment_type: "Аутсорс",
     timezone: "GMT2",
     contacts: {
-      link: [
-        "https://www.ao.com/",
-        "https://www.aokjkjh.com/",
-        "https://www.aokjkjh.com/",
+      links: [
+        "https://telegram.org",
+        "https://myteam.mail.ru/webim",
+        "https://www.atlassian.com/ru/software/jira",
       ],
       email: ["eleonora_1985@example.com", "eleohjjkgnora_1985@example.com"],
       phone: ["+7 (691) 654-2862", "+7 (691) 654-8962"],
@@ -291,6 +297,7 @@ export const companyStructure = [
     position: "Дев-разраб-1-Тим-1",
     grade: "B",
     level: 4,
+    componentId: 101,
     teamId: 303,
     departmentId: 205,
     boss: 403,
@@ -298,10 +305,10 @@ export const companyStructure = [
     employment_type: "Аутсорс",
     timezone: "GMT3",
     contacts: {
-      link: [
-        "https://www.ao.com/",
-        "https://www.aokjkjh.com/",
-        "https://www.aokjkjh.com/",
+      links: [
+        "https://telegram.org",
+        "https://myteam.mail.ru/webim",
+        "https://www.atlassian.com/ru/software/jira",
       ],
       email: ["eleonora_1985@example.com", "eleohjjkgnora_1985@example.com"],
       phone: ["+7 (691) 654-2862", "+7 (691) 654-8962"],
@@ -316,6 +323,7 @@ export const companyStructure = [
     position: "Дев-разраб-2-Тим-1",
     grade: "B",
     level: 4,
+    componentId: 101,
     teamId: 303,
     departmentId: 206,
     boss: 403,
@@ -323,10 +331,10 @@ export const companyStructure = [
     employment_type: "Штатные",
     timezone: "GMT3",
     contacts: {
-      link: [
-        "https://www.ao.com/",
-        "https://www.aokjkjh.com/",
-        "https://www.aokjkjh.com/",
+      links: [
+        "https://telegram.org",
+        "https://myteam.mail.ru/webim",
+        "https://www.atlassian.com/ru/software/jira",
       ],
       email: ["eleonora_1985@example.com", "eleohjjkgnora_1985@example.com"],
       phone: ["+7 (691) 654-2862", "+7 (691) 654-8962"],
@@ -341,6 +349,7 @@ export const companyStructure = [
     position: "Дев-разраб-1-Тим-2",
     grade: "B",
     level: 4,
+    componentId: 103,
     teamId: 303,
     departmentId: 207,
     boss: 404,
@@ -348,10 +357,10 @@ export const companyStructure = [
     employment_type: "Аутсорс",
     timezone: "GMT3",
     contacts: {
-      link: [
-        "https://www.ao.com/",
-        "https://www.aokjkjh.com/",
-        "https://www.aokjkjh.com/",
+      links: [
+        "https://telegram.org",
+        "https://myteam.mail.ru/webim",
+        "https://www.atlassian.com/ru/software/jira",
       ],
       email: ["eleonora_1985@example.com", "eleohjjkgnora_1985@example.com"],
       phone: ["+7 (691) 654-2862", "+7 (691) 654-8962"],
@@ -366,6 +375,7 @@ export const companyStructure = [
     position: "Дев-разраб-2-Тим-2",
     grade: "B",
     level: 4,
+    componentId: 102,
     teamId: 303,
     departmentId: 202,
     boss: 404,
@@ -373,10 +383,10 @@ export const companyStructure = [
     employment_type: "Штатные",
     timezone: "GMT5",
     contacts: {
-      link: [
-        "https://www.ao.com/",
-        "https://www.aokjkjh.com/",
-        "https://www.aokjkjh.com/",
+      links: [
+        "https://telegram.org",
+        "https://myteam.mail.ru/webim",
+        "https://www.atlassian.com/ru/software/jira",
       ],
       email: ["eleonora_1985@example.com", "eleohjjkgnora_1985@example.com"],
       phone: ["+7 (691) 654-2862", "+7 (691) 654-8962"],
@@ -388,13 +398,14 @@ export const userStructure = {
   id: 2,
   first_name: "Елена",
   last_name: "Тестовая",
-  photo: "http://127.0.0.1:8000/media/user_photos/16768_original_5aOkyUy.jpg",
+  photo:
+    "https://hackathonproject.sytes.net/media/user_photos/01._Ivan_Petrov.jpg",
   position: "Разработчик",
   level: 4,
   grade: "Junior+",
   bossId: 1,
-  teamId: 1,
-  componentId: 1,
+  teamId: 301,
+  componentId: 101,
   employment_type: "Аутсорс",
   timezone: "Poland",
   town: "Москва",
@@ -411,5 +422,3 @@ export const userStructure = {
     phones: ["1111111111", "22222222222"],
   },
 };
-
-

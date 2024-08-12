@@ -12,7 +12,6 @@ import styles from "./company.module.css";
 
 import { companyStructure } from "../../utils/constants";
 import CompanyCard from "../../components/company-card/company-card";
-import FilterPanel from "../../components/filter-panel/filter-panel";
 
 const Company = () => {
   const nodeTypes = {
@@ -27,6 +26,7 @@ const Company = () => {
       position: { x: 0, y: 0 },
       type: "team_card_company",
       data: {
+        id: item.id,
         first_name: item.first_name,
         last_name: item.last_name,
         photo: item.photo,
@@ -35,7 +35,7 @@ const Company = () => {
         grade: item.grade,
         employment_type: item.employment_type,
         timezone: item.timezone,
-        contacts: item.contacts.link,
+        contacts: item.contacts.links,
       },
     });
     initialEdges.push({
@@ -94,7 +94,6 @@ const Company = () => {
         <Controls />
         <MiniMap />
       </ReactFlow>
-
     </div>
   );
 };

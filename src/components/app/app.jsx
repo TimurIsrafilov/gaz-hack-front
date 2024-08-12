@@ -1,40 +1,33 @@
 import { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import { Routes, Route } from "react-router-dom";
-
-import { selectUserLoading } from "../../services/user/reducer";
 
 import styles from "./app.module.css";
 
 import Header from "../header/header";
-
 import Profile from "../../pages/profile/profile";
 import Diagram from "../../pages/diagram/diagram";
 import Company from "../../pages/company/company";
 import Catalog from "../../pages/catalog/catalog";
-
 import Preloader from "../preloader/preloader";
 
 import { loadUser } from "../../services/user/actions";
-import Sidebar from "../../pages/diagram/Sidebar";
+import { selectUserLoading } from "../../services/user/reducer";
 
 function App() {
   const dispatch = useDispatch();
 
   const isUserLoading = useSelector(selectUserLoading);
-  const isLoading = isUserLoading;
+  // const isLoading = isUserLoading;
 
   useEffect(() => {
-    dispatch(loadUser());
+    dispatch(loadUser("1"));
   }, []);
 
   return (
     <div className={styles.page}>
-      {isLoading && <Preloader />}
+      {isUserLoading && <Preloader />}
       <Header />
-      <Sidebar/>
 
       <Routes>
         <Route path="/profile" element={<Profile />} />
