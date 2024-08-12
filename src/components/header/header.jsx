@@ -12,14 +12,12 @@ import { userStructure } from "../../utils/constants";
 
 function Header() {
   const { Search } = Input;
-  // const user = useSelector(selectUser);
-  const user = userStructure;
+  const user = useSelector(selectUser);
+  // const user = userStructure;
 
   return (
     <div className={styles.header}>
-      <Link to="/" className={styles.header__logo_link}>
-        <img className={styles.header__logo} src={gaz_logo} alt="логотип" />
-      </Link>
+      <img className={styles.header__logo} src={gaz_logo} alt="логотип" />
       <ul className={styles.header__menu_container}>
         <li className={styles.header__menu_point}>
           <NavLink

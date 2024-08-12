@@ -8,8 +8,8 @@ import { selectUser } from "../../services/user/reducer";
 import { userStructure } from "../../utils/constants";
 
 function TeamProfile() {
-  // const user = useSelector(selectUser);
-  const user = userStructure;
+  const user = useSelector(selectUser);
+  // const user = userStructure;
 
   return (
     <div className={styles.team_profile}>

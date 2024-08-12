@@ -9,8 +9,8 @@ import Links from "../links/links";
 import { userStructure } from "../../utils/constants";
 
 function Contacts() {
-  // const user = useSelector(selectUser);
-  const user = userStructure;
+  const user = useSelector(selectUser);
+  // const user = userStructure;
 
   return (
     <div className={styles.contacts}>
