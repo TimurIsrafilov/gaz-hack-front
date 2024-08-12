@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "./static/css/main.db4437a3.css",
-    "main.js": "./static/js/main.575df9df.js",
-    "static/js/453.312eaf07.chunk.js": "./static/js/453.312eaf07.chunk.js",
+    "main.css": "./static/css/main.23d21b76.css",
+    "main.js": "./static/js/main.7639c2ee.js",
+    "static/js/453.383ad740.chunk.js": "./static/js/453.383ad740.chunk.js",
     "static/media/Roboto-Medium.ttf": "./static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "./static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/gaz_logo.svg": "./static/media/gaz_logo.9217e46ff0cb4f1eddd9b0e8733bce9b.svg",
@@ -10,12 +10,12 @@
     "static/media/tg-icon.svg": "./static/media/tg-icon.b640fd735c0ed231b68477b63e0775cd.svg",
     "static/media/jira-icon.svg": "./static/media/jira-icon.8a4c86ba5b8b4226925bedeb60e62d06.svg",
     "index.html": "./index.html",
-    "main.db4437a3.css.map": "./static/css/main.db4437a3.css.map",
-    "main.575df9df.js.map": "./static/js/main.575df9df.js.map",
-    "453.312eaf07.chunk.js.map": "./static/js/453.312eaf07.chunk.js.map"
+    "main.23d21b76.css.map": "./static/css/main.23d21b76.css.map",
+    "main.7639c2ee.js.map": "./static/js/main.7639c2ee.js.map",
+    "453.383ad740.chunk.js.map": "./static/js/453.383ad740.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.db4437a3.css",
-    "static/js/main.575df9df.js"
+    "static/css/main.23d21b76.css",
+    "static/js/main.7639c2ee.js"
   ]
 }
