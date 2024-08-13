@@ -11,15 +11,15 @@ import { Handle, Position } from "@xyflow/react";
 
 import Links from "../links/links";
 
-import { loadUser } from "../../services/user/actions";
+import { loadWorker } from "../../services/worker/actions";
 
 function CompanyCard({ data }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleUserShow = () => {
-    dispatch(loadUser(data.id));
-    navigate(`users/${data.id}`, { replace: true });
+    dispatch(loadWorker(data.id));
+    navigate(`/users/${data.id}`,  { replace: true } );
   };
 
   return (

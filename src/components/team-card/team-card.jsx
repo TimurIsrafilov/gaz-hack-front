@@ -6,11 +6,10 @@ import { companyDiagram } from "../../utils/constants";
 import { companyStructure } from "../../utils/constants";
 
 function TeamCard({ user }) {
-  const projects = companyDiagram.components.find(
+  const projects = companyDiagram?.components.find(
     (i) => i.id === user.componentId
   );
-  const teams = companyDiagram.teams.find((i) => i.id === user.teamId);
-
+  const teams = companyDiagram?.teams.find((i) => i.id === user.teamId);
   const teamUsers = [];
 
   teams.usersId.forEach((id) => {

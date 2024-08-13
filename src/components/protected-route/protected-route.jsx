@@ -14,10 +14,9 @@ const Protected = ({ onlyUnAuth = false, component }) => {
 
   if (!isAuthChecked) {
     return (
-      <></>
-      // <Modal isLoading={!isUserLoading}>
-      //   {/* <Preloader /> */}
-      // </Modal>
+      <Modal isLoading={!isUserLoading}>
+        <Preloader />
+      </Modal>
     );
   }
 

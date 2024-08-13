@@ -1,5 +1,5 @@
-import { NavLink, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import { Input } from "antd";
 
@@ -9,11 +9,28 @@ import gaz_logo from "../../images/gaz_logo.svg";
 
 import { selectUser } from "../../services/user/reducer";
 import { userStructure } from "../../utils/constants";
+// import { setSearchValue } from "../../services/search/actions";
+import { setSearchValue } from "../../services/search/reducer";
+import { deleteSearchValue } from "../../services/search/reducer";
 
 function Header() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const { Search } = Input;
   const user = useSelector(selectUser);
   // const user = userStructure;
+
+  const onSearch = (value) => {
+    dispatch(setSearchValue(value));
+    navigate("/catalog", { replace: true });
+  };
+
+  const onClear = () => {
+    dispatch(deleteSearchValue());
+  };
+
+  // const onSearch = (value, _e, info) => console.log(info?.source, value);
 
   return (
     <div className={styles.header}>
@@ -62,7 +79,9 @@ function Header() {
         style={{
           width: 440,
         }}
-        // onSearch={onSearch}
+        allowClear={true}
+        onSearch={onSearch}
+        onClear={onClear}
       />
 
       {user ? (

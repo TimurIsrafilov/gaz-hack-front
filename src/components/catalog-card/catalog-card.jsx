@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import styles from "./catalog-card.module.css";
 
@@ -7,15 +7,15 @@ import { Button, Divider } from "antd";
 
 import Links from "../links/links";
 
-import { loadUser } from "../../services/user/actions";
+import { loadWorker } from "../../services/worker/actions";
 
 function CatalogCard({ item }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleUserShow = () => {
-    dispatch(loadUser(item.id));
-    navigate(`users/${item.id}`, { replace: true });
+    dispatch(loadWorker(item.id));
+    navigate(`/users/${item.id}`, { replace: true });
   };
 
   return (

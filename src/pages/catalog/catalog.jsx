@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 import styles from "./catalog.module.css";
 
 import { v4 as uuidv4 } from "uuid";
@@ -7,6 +9,7 @@ import CatalogCard from "../../components/catalog-card/catalog-card";
 import FilterPanel from "../../components/filter-panel/filter-panel";
 import { useEffect, useState } from "react";
 import { Button } from "antd";
+import { getSearchValue } from "../../services/search/reducer";
 
 function Catalog() {
   const [catalogCardsToShow, setcatalogCardsToShow] =
@@ -15,10 +18,25 @@ function Catalog() {
   const [filterElements, setFilterElements] = useState(null);
   const [isFilterOpened, setIsFilterOpened] = useState(true);
 
+  const searchValue = useSelector(getSearchValue);
+
+  const searchedCompanyStructure = [];
+
+  companyStructure.map((item) => {
+    if (
+      item.first_name.toLowerCase().includes(searchValue) ||
+      item.last_name.toLowerCase().includes(searchValue)
+    ) {
+      searchedCompanyStructure.push(item);
+    } else return;
+  });
+
   useEffect(() => {
-    if (filterElements == null) {
+    if (filterElements === null && searchValue === null) {
       setcatalogCardsToShow(companyStructure);
-    } else {
+    } else if (filterElements === null && searchValue !== null) {
+      setcatalogCardsToShow(searchedCompanyStructure);
+    } else if (filterElements !== null && searchValue === null) {
       const filteredCompanyStructure = companyStructure.filter(function (item) {
         for (let key in filterElements) {
           if (item[key] !== null && item[key] !== filterElements[key])
@@ -26,10 +44,20 @@ function Catalog() {
         }
         return true;
       });
-
+      setcatalogCardsToShow(filteredCompanyStructure);
+    } else if (filterElements !== null && searchValue !== null) {
+      const filteredCompanyStructure = searchedCompanyStructure.filter(
+        function (item) {
+          for (let key in filterElements) {
+            if (item[key] !== null && item[key] !== filterElements[key])
+              return false;
+          }
+          return true;
+        }
+      );
       setcatalogCardsToShow(filteredCompanyStructure);
     }
-  }, [filterElements]);
+  }, [filterElements, searchValue]);
 
   const onFullTimeChange = () => {
     setFilterElements({ ...filterElements, employment_type: "Штатные" });
@@ -52,7 +80,7 @@ function Catalog() {
   };
 
   const handleFormReset = () => {
-    setcatalogCardsToShow(companyStructure);
+    setcatalogCardsToShow(searchedCompanyStructure);
     setFilterElements(null);
   };
 
@@ -85,11 +113,15 @@ function Catalog() {
           Фильтры
         </Button>
       )}
-      <div className={styles.catalog__grid_container}>
-        {catalogCardsToShow.map((item) => (
-          <CatalogCard item={item} key={uuidv4()} />
-        ))}
-      </div>
+      {catalogCardsToShow.length > 0 ? (
+        <div className={styles.catalog__grid_container}>
+          {catalogCardsToShow.map((item) => (
+            <CatalogCard item={item} key={uuidv4()} />
+          ))}
+        </div>
+      ) : (
+        <p>"Поиск не дал результата"</p>
+      )}
     </div>
   );
 }

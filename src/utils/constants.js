@@ -77,9 +77,9 @@ export const companyDiagram = {
       id: 301,
       // team_lead: id, // number
       componentId: [101],
-      usersId: [401, 402, 403],
+      // usersId: [401, 402, 403],
       // usersId: [401, 402, 403, 404],
-      // usersId: [401, 402, 403, 404, 405],
+      usersId: [401, 402, 403, 404, 405],
       // departmentId: id, // number
       performance: "", // описание
       description: "", // описание
