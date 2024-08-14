@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 import {
   ReactFlow,
   useNodesState,
@@ -10,17 +12,21 @@ import dagre from "dagre";
 
 import styles from "./company.module.css";
 
-import { companyStructure } from "../../utils/constants";
+// import { companyStructure } from "../../utils/constants";
 import CompanyCard from "../../components/company-card/company-card";
 
+import { selectUsers } from "../../services/users/reducer";
+
 const Company = () => {
+  const companyStructure = useSelector(selectUsers);
+
   const nodeTypes = {
     team_card_company: CompanyCard,
   };
 
   let initialNodes = [];
   let initialEdges = [];
-  companyStructure.map((item) => {
+  companyStructure?.map((item) => {
     initialNodes.push({
       id: `${item.id}`,
       position: { x: 0, y: 0 },
@@ -39,9 +45,9 @@ const Company = () => {
       },
     });
     initialEdges.push({
-      id: `e${item.id}-${item.boss}`,
+      id: `e${item.id}-${item.bossId}`,
       source: `${item.id}`,
-      target: `${item.boss}`,
+      target: `${item.bossId}`,
     });
   });
 
@@ -70,7 +76,12 @@ const Company = () => {
         ...node,
         position: {
           x: nodeWithPosition.x - nodeWidth / 2,
-          y: node.data.level * 300,
+          // y: node.data.level * 300,
+          // y: Math.random() * 300,
+          // y: nodeWithPosition.y - nodeWidth / 2,
+
+          // x: nodeWithPosition.x - nodeWidth / 2,
+          y: nodeWithPosition.y - nodeHeight / 2,
         },
       };
 

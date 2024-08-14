@@ -19,7 +19,9 @@ function CompanyCard({ data }) {
 
   const handleUserShow = () => {
     dispatch(loadWorker(data.id));
-    navigate(`/users/${data.id}`,  { replace: true } );
+    navigate(`/users/${data.id}`
+      // ,  { replace: true } 
+    );
   };
 
   return (

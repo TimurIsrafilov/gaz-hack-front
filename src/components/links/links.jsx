@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./links.module.css";
 
-import tg from "../../images/tg-icon.svg";
-import teams from "../../images/teams-icon.svg";
-import gira from "../../images/jira-icon.svg";
+import tg from "../../images/tg_icon.svg";
+import teams from "../../images/teams_icon.svg";
+import gira from "../../images/jira_icon.svg";
 
 function Links({ links }) {
   return (

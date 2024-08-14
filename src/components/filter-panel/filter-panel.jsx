@@ -1,41 +1,62 @@
+import { useState, useEffect } from "react";
+
+import { useSelector } from "react-redux";
+
 import { Button, Checkbox, Form, Select } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 
 import styles from "./filter-panel.module.css";
 
-import { companyStructure } from "../../utils/constants";
-import { companyDiagram } from "../../utils/constants";
-import { useState } from "react";
+import { selectUsers } from "../../services/users/reducer";
+import { selectProjects } from "../../services/projects/reducer";
 
 function FilterPanel(props) {
+  const companyStructure = useSelector(selectUsers);
+  const companyDiagram = useSelector(selectProjects);
+
   const [form] = Form.useForm();
   const [checkedFullTime, setCheckedFullTime] = useState(false);
   const [checkedOutsource, setCheckedOutsource] = useState(false);
+  const [disabledButton, setDisabledButton] = useState(true);
 
   const handleFullTimeChange = () => {
     props.onFullTimeChange();
     setCheckedFullTime(true);
     setCheckedOutsource(false);
+    setDisabledButton(false);
   };
 
   const handleOutsourceChange = () => {
     props.onOutsourceChange();
     setCheckedOutsource(true);
     setCheckedFullTime(false);
+    setDisabledButton(false);
   };
 
   const handleFormReset = () => {
     props.handleFormReset();
+    setDisabledButton(true);
     setCheckedFullTime(false);
     setCheckedOutsource(false);
+    onReset();
+  };
+
+  const onReset = () => {
+    form.resetFields();
+  };
+
+  const onFieldsChange = () => {
+    setDisabledButton(false);
   };
 
   const uniqueGradesOptions = [];
-  companyStructure.map((item) => {
-    if (uniqueGradesOptions.find((i) => i === item.grade)) {
+  companyStructure?.map((item) => {
+    // if (uniqueGradesOptions.find((i) => i === item.grade)) {
+    if (uniqueGradesOptions.find((i) => i === item.level)) {
       return;
     } else {
-      uniqueGradesOptions.push(item.grade);
+      // uniqueGradesOptions.push(item.grade);
+      uniqueGradesOptions.push(item.level);
     }
   });
 
@@ -48,7 +69,7 @@ function FilterPanel(props) {
   });
 
   const uniqueTimezoneOptions = [];
-  companyStructure.map((item) => {
+  companyStructure?.map((item) => {
     if (uniqueTimezoneOptions.find((i) => i === item.timezone)) {
       return;
     } else {
@@ -65,7 +86,7 @@ function FilterPanel(props) {
   });
 
   const optionDepartments = [];
-  companyDiagram.departments.map((item) => {
+  companyDiagram?.departments.map((item) => {
     optionDepartments.push({
       value: item.id,
       label: item.name,
@@ -80,6 +101,8 @@ function FilterPanel(props) {
         layout="vertical"
         autoComplete="off"
         className={styles.filter_panel_container}
+        onFieldsChange={onFieldsChange}
+        onReset={onReset}
       >
         <div className={styles.filter_panel_title_container}>
           <h3 className={styles.filter_panel_title}>Фильтры</h3>
@@ -114,7 +137,7 @@ function FilterPanel(props) {
         <Form.Item name={"Все грейды"}>
           <Select
             className={styles.filter_panel_select}
-            initialvalues="Все грейды"
+            placeholder="Все грейды"
             onChange={props.handleGradeChange}
             options={optionGrades}
           />
@@ -123,7 +146,7 @@ function FilterPanel(props) {
         <Form.Item name={"Все локации"}>
           <Select
             className={styles.filter_panel_select}
-            initialvalues="Все локации"
+            placeholder="Все локации"
             onChange={props.handleLocationeChange}
             options={optionTimezones}
           />
@@ -132,16 +155,18 @@ function FilterPanel(props) {
         <Form.Item name={"Все отделы"}>
           <Select
             className={styles.filter_panel_select}
-            initialvalues="Все отделы"
+            placeholder="Все отделы"
             onChange={props.handleDepartmentChange}
             options={optionDepartments}
           />
         </Form.Item>
+
         <Button
           className={styles.filter_panel_button_reset}
           htmlType="reset"
           type="primary"
           onClick={handleFormReset}
+          disabled={disabledButton}
         >
           Сбросить фильтры
         </Button>

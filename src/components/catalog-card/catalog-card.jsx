@@ -8,6 +8,7 @@ import { Button, Divider } from "antd";
 import Links from "../links/links";
 
 import { loadWorker } from "../../services/worker/actions";
+import TeamCard from "../team-card/team-card";
 
 function CatalogCard({ item }) {
   const navigate = useNavigate();
@@ -15,7 +16,9 @@ function CatalogCard({ item }) {
 
   const handleUserShow = () => {
     dispatch(loadWorker(item.id));
-    navigate(`/users/${item.id}`, { replace: true });
+    navigate(`/users/${item.id}`
+      // , { replace: true }
+    );
   };
 
   return (
@@ -53,6 +56,7 @@ function CatalogCard({ item }) {
       <Divider className={styles.catalog__divider} />
       <p className={styles.catalog__card_user_position_label}>Должность</p>
       <p className={styles.catalog__card_user_position}>{item.position}</p>
+      <TeamCard user={item}/>
     </div>
   );
 }

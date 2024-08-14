@@ -1,17 +1,25 @@
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
-import styles from "./catalog.module.css";
+import { useDispatch, useSelector } from "react-redux";
 
 import { v4 as uuidv4 } from "uuid";
 
-import { companyStructure } from "../../utils/constants";
+import { Button } from "antd";
+
+import styles from "./catalog.module.css";
+
 import CatalogCard from "../../components/catalog-card/catalog-card";
 import FilterPanel from "../../components/filter-panel/filter-panel";
-import { useEffect, useState } from "react";
-import { Button } from "antd";
+
 import { getSearchValue } from "../../services/search/reducer";
 
+import { selectUsers } from "../../services/users/reducer";
+
+import { loadUsers } from "../../services/users/actions";
+
 function Catalog() {
+  const companyStructure = useSelector(selectUsers);
+
   const [catalogCardsToShow, setcatalogCardsToShow] =
     useState(companyStructure);
 
@@ -22,7 +30,7 @@ function Catalog() {
 
   const searchedCompanyStructure = [];
 
-  companyStructure.map((item) => {
+  companyStructure?.map((item) => {
     if (
       item.first_name.toLowerCase().includes(searchValue) ||
       item.last_name.toLowerCase().includes(searchValue)
@@ -60,15 +68,19 @@ function Catalog() {
   }, [filterElements, searchValue]);
 
   const onFullTimeChange = () => {
-    setFilterElements({ ...filterElements, employment_type: "Штатные" });
+    setFilterElements({
+      ...filterElements,
+      employment_type: "Полная занятость",
+    });
   };
 
   const onOutsourceChange = () => {
-    setFilterElements({ ...filterElements, employment_type: "Аутсорс" });
+    setFilterElements({ ...filterElements, employment_type: null });
   };
 
   const handleGradeChange = (value) => {
-    setFilterElements({ ...filterElements, grade: value });
+    setFilterElements({ ...filterElements, level: value });
+    // setFilterElements({ ...filterElements, grade: value });
   };
 
   const handleLocationeChange = (value) => {
@@ -113,14 +125,16 @@ function Catalog() {
           Фильтры
         </Button>
       )}
-      {catalogCardsToShow.length > 0 ? (
+      {catalogCardsToShow?.length > 0 ? (
         <div className={styles.catalog__grid_container}>
           {catalogCardsToShow.map((item) => (
             <CatalogCard item={item} key={uuidv4()} />
           ))}
         </div>
       ) : (
-        <p>"Поиск не дал результата"</p>
+        <p className={styles.catalog__search_fail}>
+          "Поиск не дал результатов"
+        </p>
       )}
     </div>
   );

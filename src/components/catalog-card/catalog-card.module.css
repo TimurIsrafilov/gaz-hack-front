@@ -6,8 +6,7 @@
     background-color: rgba(255, 255, 255, 1);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 1);
-    height: 230;
-    width: 295;
+    max-height: 424px;
 }
 
 .catalog__card_container {

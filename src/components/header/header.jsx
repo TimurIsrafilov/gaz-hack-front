@@ -19,18 +19,13 @@ function Header() {
 
   const { Search } = Input;
   const user = useSelector(selectUser);
-  // const user = userStructure;
 
   const onSearch = (value) => {
     dispatch(setSearchValue(value));
-    navigate("/catalog", { replace: true });
+    navigate("/catalog"
+      // , { replace: true }
+    );
   };
-
-  const onClear = () => {
-    dispatch(deleteSearchValue());
-  };
-
-  // const onSearch = (value, _e, info) => console.log(info?.source, value);
 
   return (
     <div className={styles.header}>
@@ -45,8 +40,8 @@ function Header() {
                 : styles.header__menu_link
             }
           >
-            Справочник сотрудников{" "}
-          </NavLink>{" "}
+            Справочник сотрудников
+          </NavLink>
         </li>
         <li className={styles.header__menu_point}>
           <NavLink
@@ -79,14 +74,13 @@ function Header() {
         style={{
           width: 440,
         }}
-        allowClear={true}
+        allowClear
         onSearch={onSearch}
-        onClear={onClear}
       />
 
       {user ? (
         <NavLink
-          to="/profile"
+          to="/"
           className={({ isActive }) =>
             isActive
               ? styles.header_profile_container_active

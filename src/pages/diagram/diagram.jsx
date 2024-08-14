@@ -216,6 +216,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 import { useRef, useCallback } from "react";
+import { useSelector } from "react-redux";
 
 import {
   ReactFlow,
@@ -234,10 +235,17 @@ import "@xyflow/react/dist/style.css";
 
 import styles from "./diagram.module.css";
 
-import { companyDiagram } from "../../utils/constants";
+// import { companyDiagram } from "../../utils/constants";
+import DiagramUser from "../../components/diagram-user/diagram-user";
 import DiagramComponent from "../../components/diagram-component/diagram-component";
 
+import { selectUsers } from "../../services/users/reducer";
+import { selectProjects } from "../../services/projects/reducer";
+
+
 const Diagram = () => {
+  const companyStructure = useSelector(selectUsers);
+  const companyDiagram = useSelector(selectProjects);
   // function Diagram() {
   let id = 0;
   const getId = () => `dndnode_${id++}`;
@@ -289,6 +297,7 @@ const Diagram = () => {
 
   const nodeTypes = {
     diagram_component: DiagramComponent,
+    diagram_user: DiagramUser,
   };
 
   let initialNodes = [];
@@ -296,7 +305,7 @@ const Diagram = () => {
   let productTeams = [];
 
   // const productCompanyDiagram =
-  companyDiagram.teams.map((item) => {
+  companyDiagram?.teams.map((item) => {
     if (
       !item.name.includes("Маркетинг") &&
       !item.name.includes("Менеджмент") &&
@@ -306,7 +315,7 @@ const Diagram = () => {
     } else return;
   });
 
-  companyDiagram.components.map((item) => {
+  companyDiagram?.components.map((item) => {
     initialNodes.push({
       id: `${item.id}`,
       position: {
@@ -336,6 +345,24 @@ const Diagram = () => {
     });
   });
 
+  companyStructure?.map((item) => {
+    initialNodes.push({
+      id: `${item.id}`,
+      position: {
+        x: 0,
+        y: 0,
+      },
+      type: "diagram_user",
+      data: {
+        first_name: item.first_name,
+        last_name: item.last_name,
+        photo: item.photo,
+        itemId: id,
+        id: `${item.id}`,
+      },
+    });
+  });
+
   // companyDiagram.teams.map((item) => {
   //   initialEdges.push({
   //     id: `e${item.id}-${item.componentId}`,
@@ -347,16 +374,25 @@ const Diagram = () => {
   //   });
   // });
 
-  companyDiagram.components.map((point) => {
-    point.teamId.map((item)=> {
-    initialEdges.push({
-      id: `e${point.id}-${item}`,
-      source: `${point.id}`,
-      target: `${item}`,
+  companyDiagram?.components.map((point) => {
+    point.teams.map((item) => {
+      initialEdges.push({
+        id: `e${point.id}-${item}`,
+        source: `${point.id}`,
+        target: `${item}`,
 
-      // target: `${point.id}`,
-      // source: `${item.teamId}`,
-    })})
+        // target: `${point.id}`,
+        // source: `${item.teamId}`,
+      });
+    });
+  });
+
+  companyStructure?.map((item) => {
+    initialEdges.push({
+      id: `e${item.id}-${item.teamId}`,
+      source: `${item.id}`,
+      target: `${item.teamId}`,
+    });
   });
 
   const dagreGraph = new dagre.graphlib.Graph();
@@ -385,7 +421,7 @@ const Diagram = () => {
         position: {
           x: nodeWithPosition.x - nodeWidth / 2,
           y: nodeWithPosition.y - nodeWidth / 2,
-                    // y: 300 * node.data
+          // y: 300 * node.data
         },
       };
 

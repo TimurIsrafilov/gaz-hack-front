@@ -1,19 +1,33 @@
+import { useSelector } from "react-redux";
+
+import { useLocation } from "react-router-dom";
+
 import styles from "./team-card.module.css";
 
 import { v4 as uuidv4 } from "uuid";
 
-import { companyDiagram } from "../../utils/constants";
-import { companyStructure } from "../../utils/constants";
+// import { companyDiagram } from "../../utils/constants";
+// import { companyStructure } from "../../utils/constants";
+
+import { selectUsers } from "../../services/users/reducer";
+import { selectProjects } from "../../services/projects/reducer";
 
 function TeamCard({ user }) {
+  const companyStructure = useSelector(selectUsers);
+  const companyDiagram = useSelector(selectProjects);
+
+  const location = useLocation();
+  const state = location.state;
+  const catalogLocation = location.pathname !== "/catalog";
+
   const projects = companyDiagram?.components.find(
     (i) => i.id === user.componentId
   );
   const teams = companyDiagram?.teams.find((i) => i.id === user.teamId);
   const teamUsers = [];
 
-  teams.usersId.forEach((id) => {
-    companyStructure.forEach((item) => {
+  teams?.usersId.forEach((id) => {
+    companyStructure?.forEach((item) => {
       if (item.id === id) {
         teamUsers.push(item);
       }
@@ -21,13 +35,26 @@ function TeamCard({ user }) {
   });
 
   return (
-    <div className={styles.team_card}>
+    <div className={catalogLocation ?  styles.team_card : styles.team_card_catalog}>
       {companyDiagram ? (
         <div className={styles.team_card__container}>
-          <h4 className={styles.team_card__title}>{projects.name}</h4>
-          <p className={styles.team_card__title_team}>{projects.type}</p>
-          <div className={styles.team_card__team_container}>
-            <p className={styles.team_card__team_link}>{teams.name}</p>
+          {catalogLocation ? (
+            <div>
+              <h4 className={styles.team_card__title}>
+                {projects ? projects.name : "В проектах не участвует"}
+              </h4>
+
+              <p className={styles.team_card__title_team}>
+                {projects ? projects.type : ""}
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
+          <div className={styles.team_card__team_container      }>
+            <p className={styles.team_card__team_link}>
+              {teams ? teams.name : "В командах не состоит"}
+            </p>
             <div className={styles.team_card__users_container}>
               {teamUsers.slice(0, 4).map((item, index) => (
                 <div key={uuidv4()}>

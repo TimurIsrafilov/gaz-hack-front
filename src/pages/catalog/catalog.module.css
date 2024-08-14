@@ -47,3 +47,13 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.catalog__search_fail {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    color: rgba(140, 140, 140, 1);
+    margin: 20px 0 0 20px;
+    padding: 0;
+}
