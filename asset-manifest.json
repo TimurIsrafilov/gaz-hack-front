@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/gaz-hack-front/static/css/main.7da2057f.css",
-    "main.js": "/gaz-hack-front/static/js/main.085e9d92.js",
+    "main.js": "/gaz-hack-front/static/js/main.5091ba5d.js",
     "static/js/453.383ad740.chunk.js": "/gaz-hack-front/static/js/453.383ad740.chunk.js",
     "static/media/Roboto-Medium.ttf": "/gaz-hack-front/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/gaz-hack-front/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
@@ -12,11 +12,11 @@
     "static/media/jira_icon.svg": "/gaz-hack-front/static/media/jira_icon.8a4c86ba5b8b4226925bedeb60e62d06.svg",
     "index.html": "/gaz-hack-front/index.html",
     "main.7da2057f.css.map": "/gaz-hack-front/static/css/main.7da2057f.css.map",
-    "main.085e9d92.js.map": "/gaz-hack-front/static/js/main.085e9d92.js.map",
+    "main.5091ba5d.js.map": "/gaz-hack-front/static/js/main.5091ba5d.js.map",
     "453.383ad740.chunk.js.map": "/gaz-hack-front/static/js/453.383ad740.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7da2057f.css",
-    "static/js/main.085e9d92.js"
+    "static/js/main.5091ba5d.js"
   ]
 }
