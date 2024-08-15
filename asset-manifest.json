@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.8e7a6447.css",
-    "main.js": "./static/js/main.72bb2ac9.js",
-    "static/js/453.383ad740.chunk.js": "./static/js/453.383ad740.chunk.js",
-    "static/media/Roboto-Medium.ttf": "./static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
-    "static/media/Roboto-Regular.ttf": "./static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
-    "static/media/login.jpg": "./static/media/login.0cd71927c46925297863.jpg",
-    "static/media/gaz_logo.svg": "./static/media/gaz_logo.9217e46ff0cb4f1eddd9b0e8733bce9b.svg",
-    "static/media/teams_icon.svg": "./static/media/teams_icon.836ba5b4f7518013a66ae9fdba50388d.svg",
-    "static/media/tg_icon.svg": "./static/media/tg_icon.b640fd735c0ed231b68477b63e0775cd.svg",
-    "static/media/jira_icon.svg": "./static/media/jira_icon.8a4c86ba5b8b4226925bedeb60e62d06.svg",
-    "index.html": "./index.html",
-    "main.8e7a6447.css.map": "./static/css/main.8e7a6447.css.map",
-    "main.72bb2ac9.js.map": "./static/js/main.72bb2ac9.js.map",
-    "453.383ad740.chunk.js.map": "./static/js/453.383ad740.chunk.js.map"
+    "main.css": "/gaz-hack-front/static/css/main.7da2057f.css",
+    "main.js": "/gaz-hack-front/static/js/main.536ef04d.js",
+    "static/js/453.383ad740.chunk.js": "/gaz-hack-front/static/js/453.383ad740.chunk.js",
+    "static/media/Roboto-Medium.ttf": "/gaz-hack-front/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
+    "static/media/Roboto-Regular.ttf": "/gaz-hack-front/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
+    "static/media/login.jpg": "/gaz-hack-front/static/media/login.0cd71927c46925297863.jpg",
+    "static/media/gaz_logo.svg": "/gaz-hack-front/static/media/gaz_logo.9217e46ff0cb4f1eddd9b0e8733bce9b.svg",
+    "static/media/teams_icon.svg": "/gaz-hack-front/static/media/teams_icon.836ba5b4f7518013a66ae9fdba50388d.svg",
+    "static/media/tg_icon.svg": "/gaz-hack-front/static/media/tg_icon.b640fd735c0ed231b68477b63e0775cd.svg",
+    "static/media/jira_icon.svg": "/gaz-hack-front/static/media/jira_icon.8a4c86ba5b8b4226925bedeb60e62d06.svg",
+    "index.html": "/gaz-hack-front/index.html",
+    "main.7da2057f.css.map": "/gaz-hack-front/static/css/main.7da2057f.css.map",
+    "main.536ef04d.js.map": "/gaz-hack-front/static/js/main.536ef04d.js.map",
+    "453.383ad740.chunk.js.map": "/gaz-hack-front/static/js/453.383ad740.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e7a6447.css",
-    "static/js/main.72bb2ac9.js"
+    "static/css/main.7da2057f.css",
+    "static/js/main.536ef04d.js"
   ]
 }
