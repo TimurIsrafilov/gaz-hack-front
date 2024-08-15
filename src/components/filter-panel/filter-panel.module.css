@@ -4,6 +4,7 @@
     width: 336px;
     padding: 24px;
     background-color: rgba(255, 255, 255, 1);
+    position: fixed;
 }
 
 .filter_panel_container {

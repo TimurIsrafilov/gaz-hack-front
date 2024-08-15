@@ -1,4 +1,4 @@
-const BASE_URL = "http://hackathonproject.sytes.net/api/v1";
+const BASE_URL = "https://hackathonproject.sytes.net/api/v1";
 
 const getResponse = (res) => {
   if (!res.ok) {
@@ -27,7 +27,7 @@ export const getUserInfo = () => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net/api/v1",
+      "Access-Control-Allow-Origin": "https://hackathonproject.sytes.net/api/v1",
     },
   }).then(getResponse);
 };
@@ -38,7 +38,7 @@ export const getWorkerInfo = (workerId) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net/api/v1",
+      "Access-Control-Allow-Origin": "https://hackathonproject.sytes.net/api/v1",
     },
   }).then(getResponse);
 };
@@ -49,7 +49,7 @@ export const getUsersInfo = () => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net/api/v1",
+      "Access-Control-Allow-Origin": "https://hackathonproject.sytes.net/api/v1",
     },
   }).then(getResponse);
 };
@@ -60,7 +60,7 @@ export const getProjectsInfo = () => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net/api/v1",
+      "Access-Control-Allow-Origin": "https://hackathonproject.sytes.net/api/v1",
     },
   }).then(getResponse);
 };

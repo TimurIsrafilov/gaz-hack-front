@@ -75,7 +75,7 @@ function Catalog() {
   };
 
   const onOutsourceChange = () => {
-    setFilterElements({ ...filterElements, employment_type: null });
+    setFilterElements({ ...filterElements, employment_type: "Фриланс" });
   };
 
   const handleGradeChange = (value) => {

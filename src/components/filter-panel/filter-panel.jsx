@@ -60,12 +60,13 @@ function FilterPanel(props) {
     }
   });
 
-  const optionGrades = [];
+  const optionGrades = []
+
   uniqueGradesOptions.map((item) => {
-    optionGrades.push({
+    if (item !== null) {optionGrades.push({
       value: item,
       label: item,
-    });
+    });}
   });
 
   const uniqueTimezoneOptions = [];
