@@ -2,7 +2,7 @@
   "name": "gazprom_operator_id_hackathon_frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": "http://timurisrafilov.github.io/gaz-hack-front/",
   "dependencies": {
     "@dagrejs/dagre": "^1.1.3",
     "@reduxjs/toolkit": "^2.2.7",

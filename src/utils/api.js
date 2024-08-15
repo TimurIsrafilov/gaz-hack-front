@@ -21,12 +21,13 @@ export const login = ({ email, password }) => {
 };
 
 export const getUserInfo = () => {
-  return fetch(`${BASE_URL}/users/402`, { // id 402 установлен для исключения этапа авторизации
+  return fetch(`${BASE_URL}/users/402`, {
+    // id 402 установлен для исключения этапа авторизации
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net",
+      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net/api/v1",
     },
   }).then(getResponse);
 };
@@ -37,7 +38,7 @@ export const getWorkerInfo = (workerId) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net",
+      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net/api/v1",
     },
   }).then(getResponse);
 };
@@ -48,7 +49,7 @@ export const getUsersInfo = () => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net",
+      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net/api/v1",
     },
   }).then(getResponse);
 };
@@ -59,7 +60,7 @@ export const getProjectsInfo = () => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net",
+      "Access-Control-Allow-Origin": "http://hackathonproject.sytes.net/api/v1",
     },
   }).then(getResponse);
 };

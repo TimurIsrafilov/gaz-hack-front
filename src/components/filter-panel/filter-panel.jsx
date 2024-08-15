@@ -51,12 +51,12 @@ function FilterPanel(props) {
 
   const uniqueGradesOptions = [];
   companyStructure?.map((item) => {
-    // if (uniqueGradesOptions.find((i) => i === item.grade)) {
-    if (uniqueGradesOptions.find((i) => i === item.level)) {
+    if (uniqueGradesOptions.find((i) => i === item.grade)) {
+    // if (uniqueGradesOptions.find((i) => i === item.level)) {
       return;
     } else {
-      // uniqueGradesOptions.push(item.grade);
-      uniqueGradesOptions.push(item.level);
+      uniqueGradesOptions.push(item.grade);
+      // uniqueGradesOptions.push(item.level);
     }
   });
 

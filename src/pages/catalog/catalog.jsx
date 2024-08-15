@@ -79,8 +79,8 @@ function Catalog() {
   };
 
   const handleGradeChange = (value) => {
-    setFilterElements({ ...filterElements, level: value });
-    // setFilterElements({ ...filterElements, grade: value });
+    // setFilterElements({ ...filterElements, level: value });
+    setFilterElements({ ...filterElements, grade: value });
   };
 
   const handleLocationeChange = (value) => {

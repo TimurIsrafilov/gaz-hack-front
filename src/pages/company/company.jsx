@@ -76,12 +76,12 @@ const Company = () => {
         ...node,
         position: {
           x: nodeWithPosition.x - nodeWidth / 2,
-          // y: node.data.level * 300,
+          y: node.data.level * (300),
           // y: Math.random() * 300,
           // y: nodeWithPosition.y - nodeWidth / 2,
 
           // x: nodeWithPosition.x - nodeWidth / 2,
-          y: nodeWithPosition.y - nodeHeight / 2,
+          // y: nodeWithPosition.y - nodeHeight / 2,
         },
       };
 
