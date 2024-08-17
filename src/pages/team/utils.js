@@ -102,11 +102,11 @@ export function CreateNodesAndEdges() {
     // id: `${teamLead.id}`,
     type: "team_card_company",
     data: {
-      id: teamLead.id,
-      first_name: teamLead.first_name,
-      last_name: teamLead.last_name,
-      photo: teamLead.photo,
-      grade: teamLead.grade,
+      id: teamLead?.id,
+      first_name: teamLead?.first_name,
+      last_name: teamLead?.last_name,
+      photo: teamLead?.photo,
+      grade: teamLead?.grade,
     label: 'Target' 
     },
     position: center,

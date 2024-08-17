@@ -1,18 +1,26 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import styles from "./team-card.module.css";
 
 import { v4 as uuidv4 } from "uuid";
 
-// import { companyDiagram } from "../../utils/constants";
-// import { companyStructure } from "../../utils/constants";
+
 
 import { selectUsers } from "../../services/users/reducer";
 import { selectProjects } from "../../services/projects/reducer";
+import { Button } from "antd";
+
+import {
+
+  setSidebarTeam,
+
+} from "../../services/sidebar/reducer";
 
 function TeamCard({ user }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const companyStructure = useSelector(selectUsers);
   const companyDiagram = useSelector(selectProjects);
 
@@ -34,8 +42,17 @@ function TeamCard({ user }) {
     });
   });
 
+  const handleTeamShow = () => {
+
+    dispatch(setSidebarTeam(user.teamId));
+    navigate(`/team/${user.teamId}`);
+
+  };
+
   return (
-    <div className={catalogLocation ?  styles.team_card : styles.team_card_catalog}>
+    <div
+      className={catalogLocation ? styles.team_card : styles.team_card_catalog}
+    >
       {companyDiagram ? (
         <div className={styles.team_card__container}>
           {catalogLocation ? (
@@ -51,17 +68,29 @@ function TeamCard({ user }) {
           ) : (
             ""
           )}
-          <div className={styles.team_card__team_container      }>
-            <p className={styles.team_card__team_link}>
-              {teams ? teams.name : "В командах не состоит"}
-            </p>
+          <div className={styles.team_card__team_container}>
+ 
+              {teams ? (
+                <Button
+                  htmlType="button"
+               type="link"
+                  ghost
+                  onClick={handleTeamShow}
+                  className={styles.team_card__team_link }
+                >
+                  {teams.name}
+                </Button>
+              ) : (
+                "В командах не состоит"
+              )}
+   
             <div className={styles.team_card__users_container}>
               {teamUsers.slice(0, 4).map((item, index) => (
                 <div key={uuidv4()}>
                   <div
                     className={styles.team_card__users_picture_container}
                     style={{
-                      right: `${index * 15}px`,
+                      right: `${index * 18}px`,
                       zIndex: index,
                       backgroundColor: `${
                         index > 2 && teamUsers.length > 4
@@ -100,4 +129,4 @@ function TeamCard({ user }) {
 
 export default TeamCard;
 
-// teams.usersId
+

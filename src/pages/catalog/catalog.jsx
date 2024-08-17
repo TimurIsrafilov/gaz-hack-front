@@ -81,7 +81,8 @@ function Catalog() {
   const handleGradeChange = (value) => {
     // setFilterElements({ ...filterElements, level: value });
     if (value !== null) {
-    setFilterElements({ ...filterElements, grade: value });}
+      setFilterElements({ ...filterElements, grade: value });
+    }
   };
 
   const handleLocationeChange = (value) => {
@@ -124,7 +125,6 @@ function Catalog() {
         />
       ) : (
         <Button
-          type="primary"
           onClick={handeleFiltersOpen}
           className={styles.catalog__open_button}
         >
@@ -138,9 +138,11 @@ function Catalog() {
           ))}
         </div>
       ) : (
-        <p className={styles.catalog__search_fail}>
-          "Поиск не дал результатов"
-        </p>
+        filterElements && (
+          <p className={styles.catalog__search_fail}>
+            "Поиск не дал результатов"
+          </p>
+        )
       )}
     </div>
   );

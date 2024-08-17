@@ -7,6 +7,8 @@
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 1);
     max-height: 424px;
+    max-width: 334px;
+    box-sizing: border-box;
 }
 
 .catalog__card_container {

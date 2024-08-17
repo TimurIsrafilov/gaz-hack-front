@@ -12,7 +12,6 @@ import dagre from "dagre";
 
 import styles from "./company.module.css";
 
-// import { companyStructure } from "../../utils/constants";
 import CompanyCard from "../../components/company-card/company-card";
 
 import { selectUsers } from "../../services/users/reducer";
@@ -24,20 +23,9 @@ const Company = () => {
     team_card_company: CompanyCard,
   };
 
-  const x = companyStructure?.slice().sort(function (a, b) {
-    return parseFloat(`${a.dapartmentId}`) - parseFloat(`${b.dapartmentId}`);
-  });
-
-  const y = x?.slice().sort(function (a, b) {
-    return parseFloat(`${a.teamId}`) - parseFloat(`${b.teamId}`);
-  });
-
-
-
-
   let initialNodes = [];
   let initialEdges = [];
-  y?.map((item) => {
+  companyStructure?.map((item) => {
     initialNodes.push({
       id: `${item.id}`,
       position: { x: 0, y: 0 },
@@ -88,11 +76,6 @@ const Company = () => {
         position: {
           x: nodeWithPosition.x - nodeWidth / 2,
           y: node.data.level * 420,
-          // y: Math.random() * 300,
-          // y: nodeWithPosition.y - nodeWidth / 2,
-
-          // x: nodeWithPosition.x - nodeWidth / 2,
-          // y: nodeWithPosition.y - nodeHeight / 2,
         },
       };
 

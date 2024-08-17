@@ -18,8 +18,8 @@ function CatalogCard({ item }) {
 
   const handleUserShow = () => {
     // if (location.pathname === "/catalog") {
-      dispatch(loadWorker(item.id));
-      navigate(`/users/${item.id}`);
+    dispatch(loadWorker(item.id));
+    navigate(`/users/${item.id}`);
     // } else {
     //   navigate(`/users/${item.id}`);
     // }
@@ -28,45 +28,45 @@ function CatalogCard({ item }) {
   return (
     <div className={styles.catalog__card}>
       {item ? (
-
         <div>
-      <div className={styles.catalog__card_container}>
-        <img
-          className={styles.catalog__card_user_avatar}
-          src={item.photo}
-          alt="avatar"
-        />
-        <div className={styles.catalog__card_user_container}>
-          <h4 className={styles.catalog__card_user_name}>
-            {`${item.first_name} ${item.last_name}`}
-          </h4>
-          <p className={styles.catalog__card_user_timezone}>
-            {`${item.town}, ${item.timezone}`}
-          </p>
-          <p className={styles.catalog__card_user_employment}>
-            {item.employment_type}
-          </p>
+          <div className={styles.catalog__card_container}>
+            <img
+              className={styles.catalog__card_user_avatar}
+              src={item.photo}
+              alt="avatar"
+            />
+            <div className={styles.catalog__card_user_container}>
+              <h4 className={styles.catalog__card_user_name}>
+                {`${item.first_name} ${item.last_name}`}
+              </h4>
+              <p className={styles.catalog__card_user_timezone}>
+                {`${item.town}, ${item.timezone}`}
+              </p>
+              <p className={styles.catalog__card_user_employment}>
+                {item.employment_type}
+              </p>
+            </div>
+          </div>
+          <div className={styles.catalog__card_user_links}>
+            <Links links={item.contacts.links} />
+            <Button
+              htmlType="button"
+              type="primary"
+              ghost
+              onClick={handleUserShow}
+              className={styles.catalog__card_link}
+            >
+              Перейти в профиль
+            </Button>
+          </div>
+          <Divider className={styles.catalog__divider} />
+          <p className={styles.catalog__card_user_position_label}>Должность</p>
+          <p className={styles.catalog__card_user_position}>{item.position}</p>
+          <TeamCard user={item} />
         </div>
-      </div>
-      <div className={styles.catalog__card_user_links}>
-        <Links links={item.contacts.links} />
-        <Button
-          htmlType="button"
-          type="primary"
-          ghost
-          onClick={handleUserShow}
-          className={styles.catalog__card_link}
-        >
-          Перейти в профиль
-        </Button>
-      </div>
-      <Divider className={styles.catalog__divider} />
-      <p className={styles.catalog__card_user_position_label}>Должность</p>
-      <p className={styles.catalog__card_user_position}>{item.position}</p>
-      <TeamCard user={item} />
-
-      </div>) : " " }
-
+      ) : (
+        " "
+      )}
     </div>
   );
 }

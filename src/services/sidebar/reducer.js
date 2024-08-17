@@ -5,6 +5,7 @@ const initialState = {
   user: null,
   team: null,
   component: null,
+  initialNodes: null,
 };
 
 export const sidebarSlice = createSlice({
@@ -35,6 +36,11 @@ export const getSidebarTeam = (state) => state.sidebar.team;
 export const getSidebarComponent = (state) => state.sidebar.component;
 
 export const reducer = sidebarSlice.reducer;
-export const { setSidebarStatus, setSidebarUser, setSidebarTeam, setSidebarComponent } = sidebarSlice.actions;
+export const {
+  setSidebarStatus,
+  setSidebarUser,
+  setSidebarTeam,
+  setSidebarComponent,
+} = sidebarSlice.actions;
 
 export default reducer;

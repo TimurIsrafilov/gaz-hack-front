@@ -1,32 +1,37 @@
-import { useRef, useCallback, useState } from "react";
+import { useRef, useCallback, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
   ReactFlow,
+  ReactFlowProvider,
   MiniMap,
   Controls,
   useNodesState,
   useEdgesState,
   addEdge,
-  ReactFlowProvider,
   useReactFlow,
 } from "@xyflow/react";
+import "@xyflow/react/dist/style.css";
+
+import Sidebar from "./Sidebar";
+import { DnDProvider, useDnD } from "./DnDContext";
 
 import { CloseOutlined } from "@ant-design/icons";
 
 import dagre from "dagre";
 
-import "@xyflow/react/dist/style.css";
-
 import styles from "./diagram.module.css";
 
-// import { companyDiagram } from "../../utils/constants";
 import DiagramUser from "../../components/diagram-user/diagram-user";
 import DiagramComponent from "../../components/diagram-component/diagram-component";
+import CatalogCard from "../../components/catalog-card/catalog-card";
+import DiagramTeam from "../../components/diagram-team/diagram-team";
+import SidebarTeam from "../../components/sidebar-team/sidebar-team";
+import SidebarComponent from "../../components/sidebar-component/sidebar-component";
 
 import { selectUsers } from "../../services/users/reducer";
 import { selectProjects } from "../../services/projects/reducer";
-import { useLocation } from "react-router-dom";
+
 import {
   getSidebarStatus,
   getSidebarUser,
@@ -36,26 +41,19 @@ import {
   setSidebarUser,
   setSidebarTeam,
   setSidebarComponent,
+  setInitialNodes,
 } from "../../services/sidebar/reducer";
-
-import CatalogCard from "../../components/catalog-card/catalog-card";
-import DiagramTeam from "../../components/diagram-team/diagram-team";
-import SidebarTeam from "../../components/sidebar-team/sidebar-team";
-import SidebarComponent from "../../components/sidebar-component/sidebar-component";
+import DiagramNewUser from "../../components/diagram-new-user/diagram-new-user";
+import { Button } from "antd";
 
 const Diagram = () => {
-  const companyStructure = useSelector(selectUsers);
-  const companyDiagram = useSelector(selectProjects);
-  // function Diagram() {
+  const dispatch = useDispatch();
+
   let id = 0;
   const getId = () => `dndnode_${id++}`;
 
-  // const [panelOpen, setPanelOpen] = useState(false);
-
-  // const handlePanelOpen = ()=> {
-  //   setPanelOpen(true)
-  // }
-
+  const companyStructure = useSelector(selectUsers);
+  const companyDiagram = useSelector(selectProjects);
   const isSidebarOpen = useSelector(getSidebarStatus);
   const sidebarUserId = useSelector(getSidebarUser);
   const sidebarTeamId = useSelector(getSidebarTeam);
@@ -71,7 +69,6 @@ const Diagram = () => {
     (i) => i.id === Number(sidebarComponentId)
   );
 
-  const dispatch = useDispatch();
   const handleSidebarClose = () => {
     dispatch(setSidebarStatus(false));
     dispatch(setSidebarUser(null));
@@ -99,15 +96,21 @@ const Diagram = () => {
     sideBarContent = <SidebarComponent item={sidebarComponent} />;
   }
 
-  const reactFlowWrapper = useRef(null);
-  // const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  // const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-  const { screenToFlowPosition } = useReactFlow();
+  const nodeTypes = {
+    diagram_component: DiagramComponent,
+    diagram_team: DiagramTeam,
+    diagram_user: DiagramUser,
+    diagram_new_user: DiagramNewUser,
+  };
 
-  // const onConnect = useCallback(
-  //   (params) => setEdges((eds) => addEdge(params, eds)),
-  //   []
-  // );
+  const reactFlowWrapper = useRef(null);
+  const { screenToFlowPosition } = useReactFlow();
+  const [type] = useDnD();
+
+  const onConnect = useCallback(
+    (params) => setEdges((eds) => addEdge(params, eds)),
+    []
+  );
 
   const onDragOver = useCallback((event) => {
     event.preventDefault();
@@ -117,26 +120,20 @@ const Diagram = () => {
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
-
       const type = event.dataTransfer.getData("application/reactflow");
-
-      // check if the dropped element is valid
       if (typeof type === "undefined" || !type) {
         return;
       }
 
-      // project was renamed to screenToFlowPosition
-      // and you don't need to subtract the reactFlowBounds.left/top anymore
-      // details: https://reactflow.dev/whats-new/2023-11-10
       const position = screenToFlowPosition({
         x: event.clientX,
         y: event.clientY,
       });
       const newNode = {
         id: getId(),
-        type,
+        type: "diagram_new_user",
         position,
-        data: { label: `${type} node` },
+        data: { label: `${type} ` },
       };
 
       setNodes((nds) => nds.concat(newNode));
@@ -144,17 +141,10 @@ const Diagram = () => {
     [screenToFlowPosition]
   );
 
-  const nodeTypes = {
-    diagram_component: DiagramComponent,
-    diagram_team: DiagramTeam,
-    diagram_user: DiagramUser,
-  };
-
   let initialNodes = [];
   let initialEdges = [];
   let productTeams = [];
 
-  // const productCompanyDiagram =
   companyDiagram?.teams.map((item) => {
     if (
       !item.name.includes("Маркетинг") &&
@@ -177,7 +167,7 @@ const Diagram = () => {
         name: item.name,
         id: `${item.id}`,
       },
-      coordinate: 400
+      coordinate: 400,
     });
   });
 
@@ -193,7 +183,7 @@ const Diagram = () => {
         name: item.name,
         id: `${item.id}`,
       },
-      coordinate: 200
+      coordinate: 200,
     });
   });
 
@@ -214,34 +204,10 @@ const Diagram = () => {
           departmentId: item.departmentId,
           id: `${item.id}`,
         },
-        coordinate: 100
+        coordinate: 100,
       });
     }
   });
-
-  // companyDiagram.teams.map((item) => {
-  //   initialEdges.push({
-  //     id: `e${item.id}-${item.componentId}`,
-  //     source: `${item.id}`,
-  //     target: `${item.componentId}`,
-
-  //     // target: `${item.id}`,
-  //     // source: `${item.componentId}`,
-  //   });
-  // });
-
-  // companyDiagram?.components.map((point) => {
-  //   point.teams.map((item) => {
-  //     initialEdges.push({
-  //       id: `e${point.id}-${item}`,
-  //       source: `${point.id}`,
-  //       target: `${item}`,
-
-  //       // target: `${point.id}`,
-  //       // source: `${item.teamId}`,
-  //     });
-  //   });
-  // });
 
   companyDiagram?.teams.map((item) => {
     initialEdges.push({
@@ -285,7 +251,6 @@ const Diagram = () => {
         position: {
           x: nodeWithPosition.x - nodeWidth / 2,
           y: nodeWithPosition.y - nodeWidth / 2 + node.coordinate,
-          // y: 300 * node.data
         },
       };
 
@@ -303,23 +268,38 @@ const Diagram = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
 
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge({}, eds)),
-    []
-  );
-  // const onLayout = useCallback(
-  //   (direction) => {
-  //     const { nodes: layoutedNodes, edges: layoutedEdges } =
-  //       getLayoutedElements(nodes, edges, direction);
+  const [isSidebarOpened, setIsSidebarOpened] = useState(false);
 
-  //     setNodes([...layoutedNodes]);
-  //     setEdges([...layoutedEdges]);
-  //   },
-  //   [nodes, edges]
-  // );
+  const handeleSidebarOpen = () => {
+    setIsSidebarOpened(true);
+  };
+
+  const handeleSidebarClose = () => {
+    setIsSidebarOpened(false);
+  };
 
   return (
     <div className={styles.diagram}>
+      {isSidebarOpened ? (
+        <div >
+          <Sidebar />
+          <Button
+
+            onClick={handeleSidebarClose}
+            className={styles.diagram__close_button}
+          >
+      <CloseOutlined />
+          </Button>
+        </div>
+      ) : (
+        <Button
+          onClick={handeleSidebarOpen}
+          className={styles.diagram__open_button}
+        >
+          Добавить элементы
+        </Button>
+      )}
+
       <div className={styles.diagram__flow} ref={reactFlowWrapper}>
         <ReactFlow
           nodes={nodes}
@@ -330,8 +310,6 @@ const Diagram = () => {
           onConnect={onConnect}
           onDrop={onDrop}
           onDragOver={onDragOver}
-          // handlePanelOpen={handlePanelOpen}
-          // onLayout={onLayout}
           fitView
         >
           <Controls />
@@ -363,8 +341,8 @@ const Diagram = () => {
 
 export default () => (
   <ReactFlowProvider>
-    <Diagram />
+    <DnDProvider>
+      <Diagram />
+    </DnDProvider>
   </ReactFlowProvider>
 );
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
