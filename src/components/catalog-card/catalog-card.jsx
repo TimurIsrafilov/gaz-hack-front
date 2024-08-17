@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import styles from "./catalog-card.module.css";
@@ -14,15 +14,22 @@ function CatalogCard({ item }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // const location = useLocation();
+
   const handleUserShow = () => {
-    dispatch(loadWorker(item.id));
-    navigate(`/users/${item.id}`
-      // , { replace: true }
-    );
+    // if (location.pathname === "/catalog") {
+      dispatch(loadWorker(item.id));
+      navigate(`/users/${item.id}`);
+    // } else {
+    //   navigate(`/users/${item.id}`);
+    // }
   };
 
   return (
     <div className={styles.catalog__card}>
+      {item ? (
+
+        <div>
       <div className={styles.catalog__card_container}>
         <img
           className={styles.catalog__card_user_avatar}
@@ -56,7 +63,10 @@ function CatalogCard({ item }) {
       <Divider className={styles.catalog__divider} />
       <p className={styles.catalog__card_user_position_label}>Должность</p>
       <p className={styles.catalog__card_user_position}>{item.position}</p>
-      <TeamCard user={item}/>
+      <TeamCard user={item} />
+
+      </div>) : " " }
+
     </div>
   );
 }

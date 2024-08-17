@@ -17,36 +17,38 @@
 .catalog__grid_container {
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     row-gap: 24px;
     column-gap: 24px;
     margin: 0 auto 0 380px;
     padding: 72px 24px;
 }
 
-@media screen and (max-width: 1919px) {
+@media screen and (max-width: 2389px) {
+    .catalog__grid_container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 1989px) {
     .catalog__grid_container {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media screen and (max-width: 1439px) {
+@media screen and (max-width: 1589px) {
     .catalog__grid_container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media screen and (max-width: 1279px) {
-    .catalog__grid_container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media screen and (max-width: 1079px) {
+@media screen and (max-width: 1219px) {
     .catalog__grid_container {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
 
 .catalog__search_fail {
     font-family: 'Roboto', 'Arial', sans-serif;

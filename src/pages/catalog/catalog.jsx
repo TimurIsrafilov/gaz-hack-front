@@ -80,7 +80,8 @@ function Catalog() {
 
   const handleGradeChange = (value) => {
     // setFilterElements({ ...filterElements, level: value });
-    setFilterElements({ ...filterElements, grade: value });
+    if (value !== null) {
+    setFilterElements({ ...filterElements, grade: value });}
   };
 
   const handleLocationeChange = (value) => {
@@ -89,6 +90,10 @@ function Catalog() {
 
   const handleDepartmentChange = (value) => {
     setFilterElements({ ...filterElements, departmentId: value });
+  };
+
+  const handleTeamChange = (value) => {
+    setFilterElements({ ...filterElements, teamId: value });
   };
 
   const handleFormReset = () => {
@@ -115,6 +120,7 @@ function Catalog() {
           handleDepartmentChange={handleDepartmentChange}
           handleFormReset={handleFormReset}
           handleFormClose={handleFormClose}
+          handleTeamChange={handleTeamChange}
         />
       ) : (
         <Button

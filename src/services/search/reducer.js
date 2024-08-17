@@ -12,7 +12,7 @@ export const searchSlice = createSlice({
       state.value = action.payload;
     },
 
-    deleteSearchValue: (state, action) => {
+    deleteSearchValue: (state) => {
       state.value = null;
     },
   },

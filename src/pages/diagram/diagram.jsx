@@ -1,6 +1,5 @@
-
-import { useRef, useCallback } from "react";
-import { useSelector } from "react-redux";
+import { useRef, useCallback, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
   ReactFlow,
@@ -12,6 +11,8 @@ import {
   ReactFlowProvider,
   useReactFlow,
 } from "@xyflow/react";
+
+import { CloseOutlined } from "@ant-design/icons";
 
 import dagre from "dagre";
 
@@ -25,7 +26,22 @@ import DiagramComponent from "../../components/diagram-component/diagram-compone
 
 import { selectUsers } from "../../services/users/reducer";
 import { selectProjects } from "../../services/projects/reducer";
+import { useLocation } from "react-router-dom";
+import {
+  getSidebarStatus,
+  getSidebarUser,
+  getSidebarTeam,
+  getSidebarComponent,
+  setSidebarStatus,
+  setSidebarUser,
+  setSidebarTeam,
+  setSidebarComponent,
+} from "../../services/sidebar/reducer";
 
+import CatalogCard from "../../components/catalog-card/catalog-card";
+import DiagramTeam from "../../components/diagram-team/diagram-team";
+import SidebarTeam from "../../components/sidebar-team/sidebar-team";
+import SidebarComponent from "../../components/sidebar-component/sidebar-component";
 
 const Diagram = () => {
   const companyStructure = useSelector(selectUsers);
@@ -33,6 +49,55 @@ const Diagram = () => {
   // function Diagram() {
   let id = 0;
   const getId = () => `dndnode_${id++}`;
+
+  // const [panelOpen, setPanelOpen] = useState(false);
+
+  // const handlePanelOpen = ()=> {
+  //   setPanelOpen(true)
+  // }
+
+  const isSidebarOpen = useSelector(getSidebarStatus);
+  const sidebarUserId = useSelector(getSidebarUser);
+  const sidebarTeamId = useSelector(getSidebarTeam);
+  const sidebarComponentId = useSelector(getSidebarComponent);
+
+  const sidebarUser = companyStructure?.find(
+    (i) => i.id === Number(sidebarUserId)
+  );
+  const sidebarTeam = companyDiagram?.teams.find(
+    (i) => i.id === Number(sidebarTeamId)
+  );
+  const sidebarComponent = companyDiagram?.components.find(
+    (i) => i.id === Number(sidebarComponentId)
+  );
+
+  const dispatch = useDispatch();
+  const handleSidebarClose = () => {
+    dispatch(setSidebarStatus(false));
+    dispatch(setSidebarUser(null));
+    dispatch(setSidebarTeam(null));
+    dispatch(setSidebarComponent(null));
+  };
+
+  let sideBarTitle = null;
+
+  if (sidebarUserId !== null) {
+    sideBarTitle = "Карточка сотрудника";
+  } else if (sidebarTeamId !== null) {
+    sideBarTitle = "Профиль команды";
+  } else if (sidebarComponentId !== null) {
+    sideBarTitle = "Параметры компоненты";
+  }
+
+  let sideBarContent = null;
+
+  if (sidebarUserId !== null) {
+    sideBarContent = <CatalogCard item={sidebarUser} />;
+  } else if (sidebarTeamId !== null) {
+    sideBarContent = <SidebarTeam item={sidebarTeam} />;
+  } else if (sidebarComponentId !== null) {
+    sideBarContent = <SidebarComponent item={sidebarComponent} />;
+  }
 
   const reactFlowWrapper = useRef(null);
   // const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -81,6 +146,7 @@ const Diagram = () => {
 
   const nodeTypes = {
     diagram_component: DiagramComponent,
+    diagram_team: DiagramTeam,
     diagram_user: DiagramUser,
   };
 
@@ -121,7 +187,7 @@ const Diagram = () => {
         x: 0,
         y: 0,
       },
-      type: "diagram_component",
+      type: "diagram_team",
       data: {
         name: item.name,
         id: `${item.id}`,
@@ -142,6 +208,7 @@ const Diagram = () => {
         last_name: item.last_name,
         photo: item.photo,
         itemId: id,
+        departmentId: item.departmentId,
         id: `${item.id}`,
       },
     });
@@ -240,7 +307,7 @@ const Diagram = () => {
 
   return (
     <div className={styles.diagram}>
-      <div className={styles.diagram} ref={reactFlowWrapper}>
+      <div className={styles.diagram__flow} ref={reactFlowWrapper}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -250,6 +317,7 @@ const Diagram = () => {
           onConnect={onConnect}
           onDrop={onDrop}
           onDragOver={onDragOver}
+          // handlePanelOpen={handlePanelOpen}
           // onLayout={onLayout}
           fitView
         >
@@ -257,6 +325,25 @@ const Diagram = () => {
           <MiniMap />
         </ReactFlow>
       </div>
+      {isSidebarOpen &&
+      (sidebarUserId || sidebarTeamId || sidebarComponentId) ? (
+        <div className={styles.diagram__sidebar}>
+          <div className={styles.diagram__sidebar_title_container}>
+            <h3 className={styles.diagram__sidebar_title}>{sideBarTitle}</h3>
+            <button
+              className={styles.diagram__sidebar_button_close}
+              onClick={handleSidebarClose}
+            >
+              <CloseOutlined />
+            </button>
+          </div>
+          <div className={styles.diagram__sidebar_content}>
+            {sideBarContent}
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

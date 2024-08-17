@@ -52,7 +52,7 @@ function FilterPanel(props) {
   const uniqueGradesOptions = [];
   companyStructure?.map((item) => {
     if (uniqueGradesOptions.find((i) => i === item.grade)) {
-    // if (uniqueGradesOptions.find((i) => i === item.level)) {
+      // if (uniqueGradesOptions.find((i) => i === item.level)) {
       return;
     } else {
       uniqueGradesOptions.push(item.grade);
@@ -60,13 +60,15 @@ function FilterPanel(props) {
     }
   });
 
-  const optionGrades = []
+  const optionGrades = [];
 
   uniqueGradesOptions.map((item) => {
-    if (item !== null) {optionGrades.push({
-      value: item,
-      label: item,
-    });}
+    if (item !== null) {
+      optionGrades.push({
+        value: item,
+        label: item,
+      });
+    }
   });
 
   const uniqueTimezoneOptions = [];
@@ -89,6 +91,16 @@ function FilterPanel(props) {
   const optionDepartments = [];
   companyDiagram?.departments.map((item) => {
     optionDepartments.push({
+      value: item.id,
+      label: item.name,
+    });
+  });
+
+  // const x = companyDiagram?.teams.slice().sort( (a, b) => a.name - b.name);
+
+  const optionTeams = [];
+  companyDiagram?.teams.map((item) => {
+    optionTeams.push({
       value: item.id,
       label: item.name,
     });
@@ -143,6 +155,7 @@ function FilterPanel(props) {
             options={optionGrades}
           />
         </Form.Item>
+
         <h4 className={styles.filter_panel_point}>Локация</h4>
         <Form.Item name={"Все локации"}>
           <Select
@@ -152,7 +165,18 @@ function FilterPanel(props) {
             options={optionTimezones}
           />
         </Form.Item>
-        <h4 className={styles.filter_panel_point}>Отделы</h4>
+
+        <h4 className={styles.filter_panel_point}>Команды</h4>
+        <Form.Item name={"Все команды"}>
+          <Select
+            className={styles.filter_panel_select}
+            placeholder="Все команды"
+            onChange={props.handleTeamChange}
+            options={optionTeams}
+          />
+        </Form.Item>
+
+        <h4 className={styles.filter_panel_point}>Подразделения</h4>
         <Form.Item name={"Все отделы"}>
           <Select
             className={styles.filter_panel_select}

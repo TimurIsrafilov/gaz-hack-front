@@ -28,7 +28,7 @@
 }
 
 .filter_panel_button_close {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: transparent;
     border: none;
     cursor: pointer;
 }

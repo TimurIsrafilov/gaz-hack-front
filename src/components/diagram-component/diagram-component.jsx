@@ -1,50 +1,58 @@
-// import { useRef } from "react";
-// import { useDrag } from "react-dnd";
-
-import { Link } from "react-router-dom";
 import styles from "./diagram-component.module.css";
 
 import { Handle, Position } from "@xyflow/react";
 
+import component_icon from "../../images/component_icon.svg";
+
+import { useDispatch } from "react-redux";
+
+import {
+
+  getSidebarStatus,
+  getSidebarUser,
+  getSidebarTeam,
+  getSidebarComponent,
+
+
+  setSidebarStatus,
+  setSidebarUser,
+  setSidebarTeam,
+  setSidebarComponent
+} from "../../services/sidebar/reducer";
+
 function DiagramComponent(props) {
-  // const ref = useRef(null);
+  const dispatch = useDispatch();
 
-  // const {data} = props;
+  const handleComponentShow = () => {
+    dispatch(setSidebarStatus(true));
 
-  // const [{ isDrag }, dragRef] = useDrag({
-  //   type: "node",
-  //   item: props.data,
-  //   collect: (monitor) => ({
-  //     isDrag: monitor.isDragging(),
-  //   }),
-  // });
-
-  let componentStyle = 0;
-  if (props.data.id[0] === "1") {
-    componentStyle = styles.diagram__component_link_one;
-  } else if (props.data.id[0] === "2") {
-    componentStyle = styles.diagram__component_link_two;
-  } else if (props.data.id[0] === "3") {
-    componentStyle = styles.diagram__component_link_three;
-  } else if (props.data.id[0] === "4") {
-    componentStyle = styles.diagram__component_link_four;
-  }
+   
+    dispatch(setSidebarUser(null));
+    dispatch(setSidebarTeam(null));
+    dispatch(setSidebarComponent(props.data.id));
+  };
 
   return (
-    // !isDrag && (
-      <div
-      //  ref={dragRef} 
-       className={styles.diagram__component}>
-        <Handle type="source" position={Position.Bottom} />
-        {/* <Link to="/" className={componentStyle}>
-        {props.data.name}
-      </Link> */}
+    <div className={styles.diagram__component}>
+      <Handle type="source" position={Position.Bottom} />
 
-        <div className={componentStyle}>{props.data.name}</div>
-        <Handle type="target" position={Position.Top} />
-      </div>
-    )
-  // );
+      <button
+        htmltype="button"
+        type="primary"
+        onClick={handleComponentShow}
+        className={styles.diagram__component_link}
+      >
+        <img
+          className={styles.diagram__component_icon}
+          src={component_icon}
+          alt="team-icon"
+        />
+        <div className={styles.diagram__component_name}>{props.data.name}</div>
+      </button>
+
+      <Handle type="target" position={Position.Top} />
+    </div>
+  );
 }
 
 export default DiagramComponent;

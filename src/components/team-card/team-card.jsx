@@ -18,7 +18,7 @@ function TeamCard({ user }) {
 
   const location = useLocation();
   const state = location.state;
-  const catalogLocation = location.pathname !== "/catalog";
+  const catalogLocation = location.pathname === "/";
 
   const projects = companyDiagram?.components.find(
     (i) => i.id === user.componentId

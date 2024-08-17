@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 import styles from "./app.module.css";
 
@@ -30,6 +30,8 @@ import { selectUser } from "../../services/user/reducer";
 import { selectUsers } from "../../services/users/reducer";
 import { selectWorker } from "../../services/worker/reducer";
 import { selectProjects } from "../../services/projects/reducer";
+import CatalogCard from "../catalog-card/catalog-card";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -68,6 +70,11 @@ function App() {
   }, []);
   // }, [user,users, worker ,projects]);
 
+  const navigate = useNavigate();
+  const handleOnClose = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={styles.page}>
       {isLoading && (
@@ -78,7 +85,7 @@ function App() {
 
       {location.pathname !== "/login" ? <Header /> : ""}
       {!isLoading && (
-        <Routes >
+        <Routes location={state?.backgroundLocation || location}>
           {/* <Route path="/login" element={<OnlyUnAuth component={<Login />} />} /> функционал защищенного роутинга отключен ввиду неготовности бэкенда
         <Route path="/profile" element={<OnlyAuth component={<Profile />} />} />
         <Route path="/diagram" element={<OnlyAuth component={<Diagram />} />} />
@@ -91,9 +98,30 @@ function App() {
           <Route path="/company" element={<Company />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/users/:number" element={<Worker />} />
+          {/* <Route
+            path="/diagram/users/:number"
+            element={
+              <Modal handleOnClose={handleOnClose}>
+                <PopupUser />
+              </Modal> 
+            }
+          /> */}
           <Route path="*" element={<NotFound404 />} />
         </Routes>
       )}
+{/* 
+      {state?.backgroundLocation && (
+        <Routes>
+                 <Route
+            path="/diagram/:number"
+            element={
+              <Modal handleOnClose={handleOnClose}>
+                <PopupUser />
+              </Modal>
+            }
+          />
+        </Routes>
+      )} */}
     </div>
   );
 }

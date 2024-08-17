@@ -24,9 +24,20 @@ const Company = () => {
     team_card_company: CompanyCard,
   };
 
+  const x = companyStructure?.slice().sort(function (a, b) {
+    return parseFloat(`${a.dapartmentId}`) - parseFloat(`${b.dapartmentId}`);
+  });
+
+  const y = x?.slice().sort(function (a, b) {
+    return parseFloat(`${a.teamId}`) - parseFloat(`${b.teamId}`);
+  });
+
+
+
+
   let initialNodes = [];
   let initialEdges = [];
-  companyStructure?.map((item) => {
+  y?.map((item) => {
     initialNodes.push({
       id: `${item.id}`,
       position: { x: 0, y: 0 },
@@ -54,7 +65,7 @@ const Company = () => {
   const dagreGraph = new dagre.graphlib.Graph();
   dagreGraph.setDefaultEdgeLabel(() => ({}));
 
-  const nodeWidth = 295;
+  const nodeWidth = 300;
   const nodeHeight = 230;
 
   const getLayoutedElements = (nodes, edges) => {
@@ -76,7 +87,7 @@ const Company = () => {
         ...node,
         position: {
           x: nodeWithPosition.x - nodeWidth / 2,
-          y: node.data.level * (300),
+          y: node.data.level * 420,
           // y: Math.random() * 300,
           // y: nodeWithPosition.y - nodeWidth / 2,
 

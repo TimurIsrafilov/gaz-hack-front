@@ -6,8 +6,8 @@
     background-color: rgba(255, 255, 255, 1);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 1);
-    height: 230;
-    width: 295;
+    height: 210px;
+    width: 255px;
 }
 
 .company__card_container {
@@ -43,6 +43,7 @@
     color: rgba(140, 140, 140, 1);
     margin: 0;
     padding: 0;
+    width: 50;
 }
 
 .company__card_user_employment {
