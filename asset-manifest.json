@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/gaz-hack-front/static/css/main.a8fd8084.css",
-    "main.js": "/gaz-hack-front/static/js/main.db9af4c4.js",
+    "main.css": "/gaz-hack-front/static/css/main.b0b771ba.css",
+    "main.js": "/gaz-hack-front/static/js/main.55accd66.js",
     "static/js/453.383ad740.chunk.js": "/gaz-hack-front/static/js/453.383ad740.chunk.js",
     "static/media/Roboto-Medium.ttf": "/gaz-hack-front/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/gaz-hack-front/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
@@ -9,16 +9,17 @@
     "static/media/team_icon.svg": "/gaz-hack-front/static/media/team_icon.2ffc88c4dc8c3d94eeecd6b219461e79.svg",
     "static/media/component_icon.svg": "/gaz-hack-front/static/media/component_icon.87fdc4ea0e1162e3ce3ea0a8674f8cff.svg",
     "static/media/gaz_logo.svg": "/gaz-hack-front/static/media/gaz_logo.9217e46ff0cb4f1eddd9b0e8733bce9b.svg",
+    "static/media/user.svg": "/gaz-hack-front/static/media/user.a96fc30d3fdbd79159135c5351962186.svg",
     "static/media/teams_icon.svg": "/gaz-hack-front/static/media/teams_icon.836ba5b4f7518013a66ae9fdba50388d.svg",
     "static/media/tg_icon.svg": "/gaz-hack-front/static/media/tg_icon.b640fd735c0ed231b68477b63e0775cd.svg",
     "static/media/jira_icon.svg": "/gaz-hack-front/static/media/jira_icon.8a4c86ba5b8b4226925bedeb60e62d06.svg",
     "index.html": "/gaz-hack-front/index.html",
-    "main.a8fd8084.css.map": "/gaz-hack-front/static/css/main.a8fd8084.css.map",
-    "main.db9af4c4.js.map": "/gaz-hack-front/static/js/main.db9af4c4.js.map",
+    "main.b0b771ba.css.map": "/gaz-hack-front/static/css/main.b0b771ba.css.map",
+    "main.55accd66.js.map": "/gaz-hack-front/static/js/main.55accd66.js.map",
     "453.383ad740.chunk.js.map": "/gaz-hack-front/static/js/453.383ad740.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a8fd8084.css",
-    "static/js/main.db9af4c4.js"
+    "static/css/main.b0b771ba.css",
+    "static/js/main.55accd66.js"
   ]
 }
