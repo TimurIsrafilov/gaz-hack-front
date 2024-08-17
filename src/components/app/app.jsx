@@ -31,6 +31,7 @@ import { selectUsers } from "../../services/users/reducer";
 import { selectWorker } from "../../services/worker/reducer";
 import { selectProjects } from "../../services/projects/reducer";
 import CatalogCard from "../catalog-card/catalog-card";
+import Team from "../../pages/team/team";
 
 
 function App() {
@@ -97,6 +98,7 @@ function App() {
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/company" element={<Company />} />
           <Route path="/catalog" element={<Catalog />} />
+          <Route path="/team/:number" element={<Team />} />
           <Route path="/users/:number" element={<Worker />} />
           {/* <Route
             path="/diagram/users/:number"

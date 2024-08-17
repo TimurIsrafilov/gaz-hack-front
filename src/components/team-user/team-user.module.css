@@ -1,0 +1,84 @@
+.team__user {
+    display: flex;
+    /* height: 50px;
+    width: 50px; */
+}
+
+.team__user_link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 104px;
+    width: 104px;
+    /* font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500; */
+
+    background-color: rgba(54, 207, 201, 1);
+    border-radius: 50%;
+    border: 1px solid rgba(54, 207, 201, 1);
+    text-decoration: none;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.team__user_link_one {
+    background-color: rgba(135, 232, 222, 1);
+    border: 1px solid rgba(135, 232, 222, 1)
+}
+
+
+
+.team__user_link_two {
+    background-color: rgba(255, 173, 210, 1);
+    border: 1px solid rgba(255, 173, 210, 1)
+}
+
+
+.team__user_link_three {
+    background-color: rgba(210, 173, 247, 1);
+    border: 1px solid rgba(210, 173, 247, 1)
+}
+
+
+.team__user_link_four {
+    background-color: rgba(255, 187, 151, 1);
+    border: 1px solid rgba(255, 187, 151, 1)
+}
+
+.team__user_avatar {
+    height: 44px;
+    width: 44px;
+
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.team__user_name {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgba(38, 38, 38, 1);
+    margin: 4px 0 4px 0;
+    padding: 0;
+}
+
+.team__user_surname {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgba(38, 38, 38, 1);
+    margin: 0;
+    padding: 0;
+}
+
+

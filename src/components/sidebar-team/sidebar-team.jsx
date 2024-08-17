@@ -21,10 +21,11 @@ function SidebarTeam({ item }) {
 
   // const location = useLocation();
 
-  const handleUserShow = () => {
+  const handleTeamShow = () => {
     // if (location.pathname === "/catalog") {
-    dispatch(loadWorker(item.id));
-    navigate(`/users/${item.id}`);
+
+    navigate(`/team/${item.id}`);
+
     // } else {
     //   navigate(`/users/${item.id}`);
     // }
@@ -33,7 +34,7 @@ function SidebarTeam({ item }) {
 
   const companyStructure = useSelector(selectUsers);
 
-  const lead = companyStructure?.find((i) => i.id === item.team_leadId
+  const lead = companyStructure?.find((i) => i.id === item?.team_leadId
 );
 
   return (
@@ -66,7 +67,7 @@ function SidebarTeam({ item }) {
             htmlType="button"
             type="primary"
             ghost
-            onClick={handleUserShow}
+            onClick={handleTeamShow}
             className={styles.catalog__card_link}
           >
             Перейти в профиль команды

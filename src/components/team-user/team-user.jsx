@@ -3,7 +3,7 @@
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import styles from "./diagram-user.module.css";
+import styles from "./team-user.module.css";
 
 import { Handle, Position } from "@xyflow/react";
 import { loadWorker } from "../../services/worker/actions";
@@ -20,7 +20,7 @@ import {
   setSidebarTeam,
   setSidebarComponent
 } from "../../services/sidebar/reducer";
-function DiagramUser(props) {
+function TeamUser(props) {
 
   const location = useLocation();
 
@@ -31,7 +31,7 @@ function DiagramUser(props) {
   const handleUserShow = () => {
     // dispatch(loadWorker(props.data.id));
     // navigate(
-    //   `/diagram/users/${props.data.id}`
+    //   `/team/users/${props.data.id}`
     //   // , { replace: true }
     // );
 
@@ -45,19 +45,18 @@ function DiagramUser(props) {
 
   let userStyle = 0;
   if (props.data.departmentId === 203) {
-    userStyle = styles.diagram__user_link_one;
+    userStyle = styles.team__user_link_one;
   } else if (props.data.departmentId === 202) {
-    userStyle = styles.diagram__user_link_two;
+    userStyle = styles.team__user_link_two;
   } else if (props.data.departmentId === 226) {
-    userStyle = styles.diagram__user_link_three;
+    userStyle = styles.team__user_link_three;
   } else if (props.data.departmentId === 212) {
-    userStyle = styles.diagram__user_link_four;
+    userStyle = styles.team__user_link_four;
   }
 
   return (
-    <div className={styles.diagram__user}    >
-      <Handle type="source" position={Position.Bottom} />
-      {/* <Link to={`./users/${props.id}`} className={styles.diagram__user_link}>
+    <div className={styles.team__user}    >
+      {/* <Link to={`./users/${props.id}`} className={styles.team__user_link}>
         {props.data.name}
       </Link> */}
 
@@ -65,15 +64,15 @@ function DiagramUser(props) {
         htmltype="button"
         type="primary"
         onClick={handleUserShow}
-        className={`${styles.diagram__user_link} ${userStyle}`}
+        className={`${styles.team__user_link} ${userStyle}`}
       >
         <img
-          className={styles.diagram__user_avatar}
+          className={styles.team__user_avatar}
           src={props.data.photo}
           alt="avatar"
         />
-        <div className={styles.diagram__user_name}>{props.data.first_name}</div>
-        <div className={styles.diagram__user_surname}>
+        <div className={styles.team__user_name}>{props.data.first_name}</div>
+        <div className={styles.team__user_surname}>
           {props.data.last_name}
         </div>
       </button>
@@ -84,4 +83,4 @@ function DiagramUser(props) {
   // );
 }
 
-export default DiagramUser;
+export default TeamUser;

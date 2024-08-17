@@ -177,6 +177,7 @@ const Diagram = () => {
         name: item.name,
         id: `${item.id}`,
       },
+      coordinate: 400
     });
   });
 
@@ -192,26 +193,30 @@ const Diagram = () => {
         name: item.name,
         id: `${item.id}`,
       },
+      coordinate: 200
     });
   });
 
   companyStructure?.map((item) => {
-    initialNodes.push({
-      id: `${item.id}`,
-      position: {
-        x: 0,
-        y: 0,
-      },
-      type: "diagram_user",
-      data: {
-        first_name: item.first_name,
-        last_name: item.last_name,
-        photo: item.photo,
-        itemId: id,
-        departmentId: item.departmentId,
+    if (item.componentId) {
+      initialNodes.push({
         id: `${item.id}`,
-      },
-    });
+        position: {
+          x: 0,
+          y: 0,
+        },
+        type: "diagram_user",
+        data: {
+          first_name: item.first_name,
+          last_name: item.last_name,
+          photo: item.photo,
+          itemId: id,
+          departmentId: item.departmentId,
+          id: `${item.id}`,
+        },
+        coordinate: 100
+      });
+    }
   });
 
   // companyDiagram.teams.map((item) => {
@@ -225,16 +230,24 @@ const Diagram = () => {
   //   });
   // });
 
-  companyDiagram?.components.map((point) => {
-    point.teams.map((item) => {
-      initialEdges.push({
-        id: `e${point.id}-${item}`,
-        source: `${point.id}`,
-        target: `${item}`,
+  // companyDiagram?.components.map((point) => {
+  //   point.teams.map((item) => {
+  //     initialEdges.push({
+  //       id: `e${point.id}-${item}`,
+  //       source: `${point.id}`,
+  //       target: `${item}`,
 
-        // target: `${point.id}`,
-        // source: `${item.teamId}`,
-      });
+  //       // target: `${point.id}`,
+  //       // source: `${item.teamId}`,
+  //     });
+  //   });
+  // });
+
+  companyDiagram?.teams.map((item) => {
+    initialEdges.push({
+      id: `e${item.id}-${item.componentIds}`,
+      source: `${item.id}`,
+      target: `${item.componentIds}`,
     });
   });
 
@@ -249,8 +262,8 @@ const Diagram = () => {
   const dagreGraph = new dagre.graphlib.Graph();
   dagreGraph.setDefaultEdgeLabel(() => ({}));
 
-  const nodeWidth = 300;
-  const nodeHeight = 300;
+  const nodeWidth = 100;
+  const nodeHeight = 100;
 
   const getLayoutedElements = (nodes, edges) => {
     dagreGraph.setGraph({});
@@ -271,7 +284,7 @@ const Diagram = () => {
         ...node,
         position: {
           x: nodeWithPosition.x - nodeWidth / 2,
-          y: nodeWithPosition.y - nodeWidth / 2,
+          y: nodeWithPosition.y - nodeWidth / 2 + node.coordinate,
           // y: 300 * node.data
         },
       };
