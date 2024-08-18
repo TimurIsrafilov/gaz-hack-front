@@ -1,12 +1,22 @@
-# Getting Started with Create React App
+# Проект организационной структуры компании
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание проекта
 
-## Available Scripts
+Web-приложение для получения информации о сотрудниках, их должностях, командах, департаментах и проектах. Основная цель проекта — обеспечить удобный и эффективный способ отслеживания и управления ресурсами компании.
 
-In the project directory, you can run:
+## Проект размещен на ресурсе GitHub Pages по ссылке:
+
+[https://timurisrafilov.github.io/gaz-hack-front/](https://timurisrafilov.github.io/gaz-hack-front/)
+
+## Команды для запуска проекта
 
 ### `npm start`
+
+### `npm run build`
+
+### `npm run deploy`
+
+npm run deploy   
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

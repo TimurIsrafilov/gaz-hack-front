@@ -1,6 +1,4 @@
-
-
-const BASE_URL = "https://hackathonproject.sytes.net/api/v1";
+import { BASE_URL, LOGIN, USERS, PROJECTS } from "./constants";
 
 const getResponse = (res) => {
   if (!res.ok) {
@@ -9,19 +7,60 @@ const getResponse = (res) => {
   return res.json();
 };
 
+export const login = ({ email, password }) => {
+  return fetch(`${BASE_URL}${LOGIN}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  }).then(getResponse);
+};
 
-
-export const getProfileInfo = () => {
-  return fetch(`${BASE_URL}/users/me`, {
+export const getUserInfo = () => {
+  return fetch(`${BASE_URL}${USERS}/402`, {
+    // id 402 установлен для пропуска этапа авторизации
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "https://api.itf.nomoredomains.monster",
-      Authorization: `Bearer 2177e520382dbdcfa3f1df67538708aad1451a37`,
+      "Access-Control-Allow-Origin": `${BASE_URL}`,
     },
   }).then(getResponse);
 };
 
-export default getProfileInfo;
+export const getWorkerInfo = (workerId) => {
+  return fetch(`${BASE_URL}${USERS}/${workerId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": `${BASE_URL}`,
+    },
+  }).then(getResponse);
+};
 
+export const getUsersInfo = () => {
+  return fetch(`${BASE_URL}${USERS}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": `${BASE_URL}`,
+    },
+  }).then(getResponse);
+};
+
+export const getProjectsInfo = () => {
+  return fetch(`${BASE_URL}${PROJECTS}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": `${BASE_URL}`,
+    },
+  }).then(getResponse);
+};
