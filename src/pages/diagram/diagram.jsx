@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState, useEffect } from "react";
+import { useRef, useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -13,7 +13,6 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
-import Sidebar from "../../components/diagram-sidebar/diagram-sidebar";
 import { DnDProvider, useDnD } from "./DnDContext";
 
 import { CloseOutlined } from "@ant-design/icons";
@@ -22,10 +21,11 @@ import dagre from "dagre";
 
 import styles from "./diagram.module.css";
 
+import CatalogCard from "../../components/catalog-card/catalog-card";
 import DiagramUser from "../../components/diagram-user/diagram-user";
 import DiagramComponent from "../../components/diagram-component/diagram-component";
-import CatalogCard from "../../components/catalog-card/catalog-card";
 import DiagramTeam from "../../components/diagram-team/diagram-team";
+import Sidebar from "../../components/diagram-sidebar/diagram-sidebar";
 import SidebarTeam from "../../components/sidebar-team/sidebar-team";
 import SidebarComponent from "../../components/sidebar-component/sidebar-component";
 
@@ -41,7 +41,6 @@ import {
   setSidebarUser,
   setSidebarTeam,
   setSidebarComponent,
-  setInitialNodes,
 } from "../../services/sidebar/reducer";
 import DiagramNewUser from "../../components/diagram-new-user/diagram-new-user";
 import { Button } from "antd";
@@ -107,11 +106,6 @@ const Diagram = () => {
   const { screenToFlowPosition } = useReactFlow();
   const [type] = useDnD();
 
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    []
-  );
-
   const onDragOver = useCallback((event) => {
     event.preventDefault();
     event.dataTransfer.dropEffect = "move";
@@ -152,7 +146,8 @@ const Diagram = () => {
       !item.name.includes("HR")
     ) {
       productTeams.push(item);
-    } else return;
+    }
+    return companyDiagram;
   });
 
   companyDiagram?.components.map((item) => {
@@ -169,6 +164,7 @@ const Diagram = () => {
       },
       coordinate: 400,
     });
+    return initialNodes;
   });
 
   productTeams.map((item) => {
@@ -185,6 +181,7 @@ const Diagram = () => {
       },
       coordinate: 200,
     });
+    return initialNodes;
   });
 
   companyStructure?.map((item) => {
@@ -207,6 +204,7 @@ const Diagram = () => {
         coordinate: 100,
       });
     }
+    return initialNodes;
   });
 
   companyDiagram?.teams.map((item) => {
@@ -215,6 +213,7 @@ const Diagram = () => {
       source: `${item.id}`,
       target: `${item.componentIds}`,
     });
+    return initialEdges;
   });
 
   companyStructure?.map((item) => {
@@ -223,6 +222,7 @@ const Diagram = () => {
       source: `${item.id}`,
       target: `${item.teamId}`,
     });
+    return initialEdges;
   });
 
   const dagreGraph = new dagre.graphlib.Graph();
@@ -270,6 +270,11 @@ const Diagram = () => {
 
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
 
+  const onConnect = useCallback(
+    (params) => setEdges((eds) => addEdge(params, eds)),
+    [setEdges]
+  );
+
   const handeleSidebarOpen = () => {
     setIsSidebarOpened(true);
   };
@@ -281,14 +286,13 @@ const Diagram = () => {
   return (
     <div className={styles.diagram}>
       {isSidebarOpened ? (
-        <div >
+        <div>
           <Sidebar />
           <Button
-
             onClick={handeleSidebarClose}
             className={styles.diagram__close_button}
           >
-      <CloseOutlined />
+            <CloseOutlined />
           </Button>
         </div>
       ) : (

@@ -1,10 +1,10 @@
-import ModalOverlay from "../modal-overlay/modal-overlay";
-
-import styles from "./modal.module.css";
+import { createPortal } from "react-dom";
 
 import { CloseOutlined } from "@ant-design/icons";
 
-import { createPortal } from "react-dom";
+import styles from "./modal.module.css";
+
+import ModalOverlay from "../modal-overlay/modal-overlay";
 
 const portal = document.getElementById("portal");
 

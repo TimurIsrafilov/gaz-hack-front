@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { Button, Checkbox, Form, Select } from "antd";
@@ -52,12 +51,11 @@ function FilterPanel(props) {
   const uniqueGradesOptions = [];
   companyStructure?.map((item) => {
     if (uniqueGradesOptions.find((i) => i === item.grade)) {
-      // if (uniqueGradesOptions.find((i) => i === item.level)) {
-      return;
+      return companyStructure;
     } else {
       uniqueGradesOptions.push(item.grade);
-      // uniqueGradesOptions.push(item.level);
     }
+    return uniqueGradesOptions;
   });
 
   const optionGrades = [];
@@ -69,15 +67,17 @@ function FilterPanel(props) {
         label: item,
       });
     }
+    return uniqueGradesOptions;
   });
 
   const uniqueTimezoneOptions = [];
   companyStructure?.map((item) => {
     if (uniqueTimezoneOptions.find((i) => i === item.timezone)) {
-      return;
+      return companyStructure;
     } else {
       uniqueTimezoneOptions.push(item.timezone);
     }
+    return uniqueTimezoneOptions;
   });
 
   const optionTimezones = [];
@@ -86,6 +86,7 @@ function FilterPanel(props) {
       value: item,
       label: item,
     });
+    return uniqueTimezoneOptions;
   });
 
   const optionDepartments = [];
@@ -94,9 +95,8 @@ function FilterPanel(props) {
       value: item.id,
       label: item.name,
     });
+    return companyDiagram;
   });
-
-
 
   const optionTeams = [];
   companyDiagram?.teams.map((item) => {
@@ -104,6 +104,7 @@ function FilterPanel(props) {
       value: item.id,
       label: item.name,
     });
+    return companyDiagram;
   });
 
   return (
@@ -113,26 +114,26 @@ function FilterPanel(props) {
         name="validateOnly"
         layout="vertical"
         autoComplete="off"
-        className={styles.filter_panel_container}
+        className={styles.filter_panel__container}
         onFieldsChange={onFieldsChange}
         onReset={onReset}
       >
-        <div className={styles.filter_panel_title_container}>
-          <h3 className={styles.filter_panel_title}>Фильтры</h3>
+        <div className={styles.filter_panel__title_container}>
+          <h3 className={styles.filter_panel__title}>Фильтры</h3>
           <button
-            className={styles.filter_panel_button_close}
+            className={styles.filter_panel__button_close}
             onClick={props.handleFormClose}
           >
             <CloseOutlined />
           </button>
         </div>
 
-        <h4 className={styles.filter_panel_point}>Сотрудники</h4>
+        <h4 className={styles.filter_panel__point}>Сотрудники</h4>
         <Form.Item name={"Штатные"}>
           <Checkbox
             checked={checkedFullTime}
             onChange={handleFullTimeChange}
-            className={styles.filter_panel_checkbox}
+            className={styles.filter_panel__checkbox}
           >
             Штатные
           </Checkbox>
@@ -141,45 +142,45 @@ function FilterPanel(props) {
           <Checkbox
             checked={checkedOutsource}
             onChange={handleOutsourceChange}
-            className={styles.filter_panel_checkbox}
+            className={styles.filter_panel__checkbox}
           >
             Аутсорс
           </Checkbox>
         </Form.Item>
-        <h4 className={styles.filter_panel_point}>Грейд</h4>
+        <h4 className={styles.filter_panel__point}>Грейд</h4>
         <Form.Item name={"Все грейды"}>
           <Select
-            className={styles.filter_panel_select}
+            className={styles.filter_panel__select}
             placeholder="Все грейды"
             onChange={props.handleGradeChange}
             options={optionGrades}
           />
         </Form.Item>
 
-        <h4 className={styles.filter_panel_point}>Локация</h4>
+        <h4 className={styles.filter_panel__point}>Локация</h4>
         <Form.Item name={"Все локации"}>
           <Select
-            className={styles.filter_panel_select}
+            className={styles.filter_panel__select}
             placeholder="Все локации"
             onChange={props.handleLocationeChange}
             options={optionTimezones}
           />
         </Form.Item>
 
-        <h4 className={styles.filter_panel_point}>Команды</h4>
+        <h4 className={styles.filter_panel__point}>Команды</h4>
         <Form.Item name={"Все команды"}>
           <Select
-            className={styles.filter_panel_select}
+            className={styles.filter_panel__select}
             placeholder="Все команды"
             onChange={props.handleTeamChange}
             options={optionTeams}
           />
         </Form.Item>
 
-        <h4 className={styles.filter_panel_point}>Подразделения</h4>
+        <h4 className={styles.filter_panel__point}>Подразделения</h4>
         <Form.Item name={"Все отделы"}>
           <Select
-            className={styles.filter_panel_select}
+            className={styles.filter_panel__select}
             placeholder="Все отделы"
             onChange={props.handleDepartmentChange}
             options={optionDepartments}
@@ -187,7 +188,7 @@ function FilterPanel(props) {
         </Form.Item>
 
         <Button
-          className={styles.filter_panel_button_reset}
+          className={styles.filter_panel__button_reset}
           htmlType="reset"
           type="primary"
           onClick={handleFormReset}

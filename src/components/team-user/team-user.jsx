@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
 import styles from "./team-user.module.css";
 
 import { loadWorker } from "../../services/worker/actions";
+
+import { USERS } from "../../utils/constants";
 
 function TeamUser(props) {
   const dispatch = useDispatch();
@@ -10,7 +13,7 @@ function TeamUser(props) {
 
   const handleUserShow = () => {
     dispatch(loadWorker(props.data.id));
-    navigate(`/users/${props.data.id}`);
+    navigate(`${USERS}/${props.data.id}`);
   };
 
   const isUserLead = props.data.grade === "Team Lead";
@@ -55,7 +58,6 @@ function TeamUser(props) {
       </button>
     </div>
   );
-  // );
 }
 
 export default TeamUser;

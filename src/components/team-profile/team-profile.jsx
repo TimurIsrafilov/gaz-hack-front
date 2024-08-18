@@ -1,6 +1,6 @@
-import TeamCard from "../team-card/team-card";
-
 import styles from "./team-profile.module.css";
+
+import TeamCard from "../team-card/team-card";
 
 function TeamProfile({ user }) {
   return (

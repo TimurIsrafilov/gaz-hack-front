@@ -5,26 +5,24 @@ import { Input } from "antd";
 
 import styles from "./header.module.css";
 
+import { selectUser } from "../../services/user/reducer";
+import { setSearchValue } from "../../services/search/reducer";
+
 import gaz_logo from "../../images/gaz_logo.svg";
 
-import { selectUser } from "../../services/user/reducer";
-import { userStructure } from "../../utils/constants";
-// import { setSearchValue } from "../../services/search/actions";
-import { setSearchValue } from "../../services/search/reducer";
-import { deleteSearchValue } from "../../services/search/reducer";
+import { DIAGRAM, COMPANY, CATALOG } from "../../utils/constants";
 
 function Header() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const user = useSelector(selectUser);
 
   const { Search } = Input;
-  const user = useSelector(selectUser);
 
   const onSearch = (value) => {
     dispatch(setSearchValue(value));
-    navigate("/catalog"
-      // , { replace: true }
-    );
+    navigate(`${CATALOG}`);
   };
 
   return (
@@ -33,7 +31,7 @@ function Header() {
       <ul className={styles.header__menu_container}>
         <li className={styles.header__menu_point}>
           <NavLink
-            to="/catalog"
+            to={CATALOG}
             className={({ isActive }) =>
               isActive
                 ? styles.header__menu_link_active
@@ -45,7 +43,7 @@ function Header() {
         </li>
         <li className={styles.header__menu_point}>
           <NavLink
-            to="/company"
+            to={COMPANY}
             className={({ isActive }) =>
               isActive
                 ? styles.header__menu_link_active
@@ -57,7 +55,7 @@ function Header() {
         </li>
         <li className={styles.header__menu_point}>
           <NavLink
-            to="/diagram"
+            to={DIAGRAM}
             className={({ isActive }) =>
               isActive
                 ? styles.header__menu_link_active

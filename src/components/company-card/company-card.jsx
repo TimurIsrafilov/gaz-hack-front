@@ -3,29 +3,29 @@ import { useDispatch } from "react-redux";
 
 import styles from "./company-card.module.css";
 
-import { Button } from "antd";
-
-import { MoreOutlined } from "@ant-design/icons";
-
 import { Handle, Position } from "@xyflow/react";
+
+import { Button } from "antd";
+import { MoreOutlined } from "@ant-design/icons";
 
 import Links from "../links/links";
 
 import { loadWorker } from "../../services/worker/actions";
 
+import { USERS } from "../../utils/constants";
+
 function CompanyCard({ data }) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleUserShow = () => {
     dispatch(loadWorker(data.id));
-    navigate(`/users/${data.id}`);
+    navigate(`${USERS}/${data.id}`);
   };
 
   return (
     <div className={styles.company__card}>
       <Handle type="source" position={Position.Top} />
-
       {data ? (
         <div>
           <div className={styles.company__card_container}>

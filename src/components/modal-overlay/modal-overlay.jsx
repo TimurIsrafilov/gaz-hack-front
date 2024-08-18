@@ -15,7 +15,7 @@ function ModalOverlay({ handleOnClose }) {
     return () => {
       window.removeEventListener("keydown", handleEsc);
     };
-  }, []);
+  }, [handleOnClose]);
 
   return (
     <section className={styles.modal_overlay} onClick={handleOnClose}></section>

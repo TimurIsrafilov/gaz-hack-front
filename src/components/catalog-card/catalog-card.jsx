@@ -1,67 +1,63 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
-import styles from "./catalog-card.module.css";
 
 import { Button, Divider } from "antd";
 
-import Links from "../links/links";
+import styles from "./catalog-card.module.css";
 
-import { loadWorker } from "../../services/worker/actions";
+import Links from "../links/links";
 import TeamCard from "../team-card/team-card";
 
-function CatalogCard({ item }) {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+import { loadWorker } from "../../services/worker/actions";
 
-  // const location = useLocation();
+import { USERS } from "../../utils/constants";
+
+function CatalogCard({ item }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleUserShow = () => {
-    // if (location.pathname === "/catalog") {
     dispatch(loadWorker(item.id));
-    navigate(`/users/${item.id}`);
-    // } else {
-    //   navigate(`/users/${item.id}`);
-    // }
+    navigate(`${USERS}/${item.id}`);
   };
 
   return (
-    <div className={styles.catalog__card}>
+    <div className={styles.catalog_card}>
       {item ? (
         <div>
-          <div className={styles.catalog__card_container}>
+          <div className={styles.catalog_card__container}>
             <img
-              className={styles.catalog__card_user_avatar}
+              className={styles.catalog_card__user_avatar}
               src={item.photo}
               alt="avatar"
             />
-            <div className={styles.catalog__card_user_container}>
-              <h4 className={styles.catalog__card_user_name}>
+            <div className={styles.catalog_card__user_container}>
+              <h4 className={styles.catalog_card__user_name}>
                 {`${item.first_name} ${item.last_name}`}
               </h4>
-              <p className={styles.catalog__card_user_timezone}>
+              <p className={styles.catalog_card__user_timezone}>
                 {`${item.town}, ${item.timezone}`}
               </p>
-              <p className={styles.catalog__card_user_employment}>
+              <p className={styles.catalog_card__user_employment}>
                 {item.employment_type}
               </p>
             </div>
           </div>
-          <div className={styles.catalog__card_user_links}>
+          <div className={styles.catalog_card__user_links}>
             <Links links={item.contacts.links} />
             <Button
               htmlType="button"
               type="primary"
               ghost
               onClick={handleUserShow}
-              className={styles.catalog__card_link}
+              className={styles.catalog_card__link}
             >
               Перейти в профиль
             </Button>
           </div>
-          <Divider className={styles.catalog__divider} />
-          <p className={styles.catalog__card_user_position_label}>Должность</p>
-          <p className={styles.catalog__card_user_position}>{item.position}</p>
+          <Divider className={styles.catalog_card__divider} />
+          <p className={styles.catalog_card__user_position_label}>Должность</p>
+          <p className={styles.catalog_card__user_position}>{item.position}</p>
           <TeamCard user={item} />
         </div>
       ) : (

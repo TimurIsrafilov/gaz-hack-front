@@ -1,8 +1,8 @@
-.diagram__team {
+.diagram_team {
     display: flex;
 }
 
-.diagram__team_link {
+.diagram_team__link {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,31 +22,31 @@
     cursor: pointer;
 }
 
-.diagram__team_link_one {
+.diagram_team__link_one {
     background-color: rgba(55, 207, 200, 1);
     border: 1px solid rgba(55, 207, 200, 1)
 }
 
-.diagram__team_link_two {
+.diagram_team__link_two {
     background-color: rgba(246, 89, 171, 1);
     border: 1px solid rgba(246, 89, 171, 1)
 }
 
-.diagram__team_link_three {
+.diagram_team__link_three {
     background-color: rgba(147, 84, 223, 1);
     border: 1px solid rgba(147, 84, 223, 1)
 }
 
-.diagram__team_link_four {
+.diagram_team__link_four {
     background-color: rgba(255, 122, 69, 1);
     border: 1px solid rgba(255, 122, 69, 1)
 }
 
-.diagram__team_icon {
+.diagram_team__icon {
     height: 32px;
     width: 32px;
     margin: 0 0 10px 0;
     padding: 0;
 }
 
-.diagram__team_name {}
+.diagram_team__name {}

@@ -8,17 +8,17 @@
     box-sizing: border-box;
 }
 
-.filter_panel_container {
+.filter_panel__container {
     display: flex;
     flex-direction: column;
 }
 
-.filter_panel_title_container {
+.filter_panel__title_container {
     display: flex;
     justify-content: space-between;
 }
 
-.filter_panel_title {
+.filter_panel__title {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 24px;
     font-style: normal;
@@ -28,13 +28,13 @@
     padding: 0;
 }
 
-.filter_panel_button_close {
+.filter_panel__button_close {
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-.filter_panel_point {
+.filter_panel__point {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 16px;
     font-style: normal;
@@ -44,19 +44,19 @@
     padding: 0;
 }
 
-.filter_panel_checkbox {
+.filter_panel__checkbox {
     margin: 0;
     padding: 0;
 }
 
-.filter_panel_select {
+.filter_panel__select {
     width: 288px;
     height: 40px;
     margin: 0;
     padding: 0;
 }
 
-.filter_panel_button_reset {
+.filter_panel__button_reset {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 14px;
     font-style: normal;

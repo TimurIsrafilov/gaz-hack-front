@@ -7,10 +7,6 @@
     width: 100vw;
 }
 
-.floatingedges .react-flow__handle {
-    opacity: 0;
-}
-
 @media screen and (max-width: 768px) {
     .team__flow {
         height: calc(100vh - 194px)

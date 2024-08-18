@@ -8,7 +8,7 @@
     padding: 0;
 }
 
-.team_card_catalog {
+.team_card__catalog {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -47,7 +47,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* flex-grow: 1 */
 }
 
 .team_card__team_link {
@@ -56,7 +55,7 @@
     font-style: normal;
     font-weight: 400;
     color: rgba(22, 119, 255, 1);
-    margin: 0 10px 0 0 ;
+    margin: 0 10px 0 0;
     padding: 0;
 }
 

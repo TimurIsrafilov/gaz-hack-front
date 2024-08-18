@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,11 +10,8 @@ import styles from "./catalog.module.css";
 import CatalogCard from "../../components/catalog-card/catalog-card";
 import FilterPanel from "../../components/filter-panel/filter-panel";
 
-import { getSearchValue } from "../../services/search/reducer";
-
 import { selectUsers } from "../../services/users/reducer";
-
-import { loadUsers } from "../../services/users/actions";
+import { getSearchValue } from "../../services/search/reducer";
 
 function Catalog() {
   const companyStructure = useSelector(selectUsers);
@@ -36,7 +32,8 @@ function Catalog() {
       item.last_name.toLowerCase().includes(searchValue)
     ) {
       searchedCompanyStructure.push(item);
-    } else return;
+    }
+    return searchedCompanyStructure;
   });
 
   useEffect(() => {
@@ -79,7 +76,6 @@ function Catalog() {
   };
 
   const handleGradeChange = (value) => {
-    // setFilterElements({ ...filterElements, level: value });
     if (value !== null) {
       setFilterElements({ ...filterElements, grade: value });
     }
@@ -146,11 +142,18 @@ function Catalog() {
           </div>
         </div>
       ) : (
-        filterElements && (
-          <p className={styles.catalog__search_fail}>
-            "Поиск не дал результатов"
-          </p>
-        )
+        <div>
+          {filterElements && (
+            <p className={styles.catalog__search_fail}>
+              "Фильтр не дал результатов"
+            </p>
+          )}
+          {searchValue && (
+            <p className={styles.catalog__search_fail}>
+              "Поиск не дал результатов"
+            </p>
+          )}
+        </div>
       )}
     </div>
   );

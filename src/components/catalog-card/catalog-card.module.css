@@ -1,4 +1,4 @@
-.catalog__card {
+.catalog_card {
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -11,27 +11,27 @@
     box-sizing: border-box;
 }
 
-.catalog__card_container {
+.catalog_card__container {
     display: flex;
     align-items: flex-start;
     margin: 0 0 16px 0;
     padding: 0;
 }
 
-.catalog__card_user_avatar {
+.catalog_card__user_avatar {
     height: 64px;
     width: 64px;
     border-radius: 50%;
 }
 
-.catalog__card_user_container {
+.catalog_card__user_container {
     display: flex;
     flex-direction: column;
     margin: 0 10px 0 10px;
     padding: 0;
 }
 
-.catalog__card_user_name {
+.catalog_card__user_name {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 16px;
     font-style: normal;
@@ -41,7 +41,7 @@
     padding: 0;
 }
 
-.catalog__card_user_timezone {
+.catalog_card__user_timezone {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -51,7 +51,7 @@
     padding: 0;
 }
 
-.catalog__card_user_employment {
+.catalog_card__user_employment {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 12px;
     font-style: normal;
@@ -61,23 +61,23 @@
     padding: 0;
 }
 
-.catalog__card_user_links {
+.catalog_card__user_links {
     display: flex;
     justify-content: space-between;
 }
 
-.catalog__card_link {
+.catalog_card__link {
     height: 32px;
     width: 150px;
     margin: 0;
     padding: 0;
 }
 
-.catalog__divider {
+.catalog_card__divider {
     border: 1px solid rgba(217, 217, 217, 1);
 }
 
-.catalog__card_user_position_label {
+.catalog_card__user_position_label {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -87,7 +87,7 @@
     padding: 0;
 }
 
-.catalog__card_user_position {
+.catalog_card__user_position {
     font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 14px;
     font-style: normal;

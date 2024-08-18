@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from "react-router-dom";
-
 import { useSelector } from "react-redux";
 
 import { Button } from "antd";
@@ -9,6 +8,8 @@ import styles from "./sidebar-team.module.css";
 import CompanyCard from "../company-card/company-card";
 
 import { selectUsers } from "../../services/users/reducer";
+
+import { TEAM } from "../../utils/constants";
 
 function SidebarTeam({ item }) {
   const location = useLocation();
@@ -20,7 +21,7 @@ function SidebarTeam({ item }) {
   const lead = companyStructure?.find((i) => i.id === item?.team_leadId);
 
   const handleTeamShow = () => {
-    navigate(`/team/${item.id}`);
+    navigate(`${TEAM}/${item.id}`);
   };
 
   return (

@@ -1,4 +1,4 @@
-const BASE_URL = "https://hackathonproject.sytes.net/api/v1";
+import { BASE_URL, LOGIN, USERS, PROJECTS } from "./constants";
 
 const getResponse = (res) => {
   if (!res.ok) {
@@ -8,7 +8,7 @@ const getResponse = (res) => {
 };
 
 export const login = ({ email, password }) => {
-  return fetch(`${BASE_URL}/login`, {
+  return fetch(`${BASE_URL}${LOGIN}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -21,46 +21,46 @@ export const login = ({ email, password }) => {
 };
 
 export const getUserInfo = () => {
-  return fetch(`${BASE_URL}/users/402`, {
-    // id 402 установлен для исключения этапа авторизации
+  return fetch(`${BASE_URL}${USERS}/402`, {
+    // id 402 установлен для пропуска этапа авторизации
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "https://hackathonproject.sytes.net/api/v1",
+      "Access-Control-Allow-Origin": `${BASE_URL}`,
     },
   }).then(getResponse);
 };
 
 export const getWorkerInfo = (workerId) => {
-  return fetch(`${BASE_URL}/users/${workerId}`, {
+  return fetch(`${BASE_URL}${USERS}/${workerId}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "https://hackathonproject.sytes.net/api/v1",
+      "Access-Control-Allow-Origin": `${BASE_URL}`,
     },
   }).then(getResponse);
 };
 
 export const getUsersInfo = () => {
-  return fetch(`${BASE_URL}/users`, {
+  return fetch(`${BASE_URL}${USERS}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "https://hackathonproject.sytes.net/api/v1",
+      "Access-Control-Allow-Origin": `${BASE_URL}`,
     },
   }).then(getResponse);
 };
 
 export const getProjectsInfo = () => {
-  return fetch(`${BASE_URL}/projects`, {
+  return fetch(`${BASE_URL}${PROJECTS}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "https://hackathonproject.sytes.net/api/v1",
+      "Access-Control-Allow-Origin": `${BASE_URL}`,
     },
   }).then(getResponse);
 };

@@ -1,8 +1,8 @@
-.diagram__component {
+.diagram_component {
     display: flex;
 }
 
-.diagram__component_link {
+.diagram_component__link {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,11 +25,11 @@
 }
 
 
-.diagram__component_icon {
+.diagram_component__icon {
     height: 32px;
     width: 32px;
     margin: 0 0 16px 0;
     padding: 0;
 }
 
-.diagram__component_name {}
+.diagram_component__name {}

@@ -48,6 +48,7 @@ const Company = () => {
       source: `${item.id}`,
       target: `${item.bossId}`,
     });
+    return companyStructure;
   });
 
   const dagreGraph = new dagre.graphlib.Graph();

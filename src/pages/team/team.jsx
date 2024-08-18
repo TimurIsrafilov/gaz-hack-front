@@ -17,11 +17,10 @@ import { CreateNodesAndEdges } from "./utils";
 import styles from "./team.module.css";
 
 import SidebarTeam from "../../components/sidebar-team/sidebar-team";
+import TeamUser from "../../components/team-user/team-user";
 
 import { getSidebarTeam } from "../../services/sidebar/reducer";
 import { selectProjects } from "../../services/projects/reducer";
-import DiagramUser from "../../components/diagram-user/diagram-user";
-import TeamUser from "../../components/team-user/team-user";
 
 const Team = () => {
   const sidebarTeamId = useSelector(getSidebarTeam);
@@ -34,7 +33,6 @@ const Team = () => {
 
   const nodeTypes = {
     team_card_company: TeamUser,
-    // team_card_company: TeamUser,
   };
 
   const edgeTypes = {
