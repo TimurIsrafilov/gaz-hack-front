@@ -82,7 +82,6 @@ export function CreateNodesAndEdges() {
   const companyStructure = useSelector(selectUsers);
   const companyDiagram = useSelector(selectProjects);
 
-
   const currentTeam = companyDiagram?.teams.find(
     (i) => i.id === Number(sidebarTeamId)
   );
@@ -98,8 +97,7 @@ export function CreateNodesAndEdges() {
   const center = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
   nodes.push({
-    id: 'target',
-    // id: `${teamLead.id}`,
+    id: "target",
     type: "team_card_company",
     data: {
       id: teamLead?.id,
@@ -107,7 +105,8 @@ export function CreateNodesAndEdges() {
       last_name: teamLead?.last_name,
       photo: teamLead?.photo,
       grade: teamLead?.grade,
-    label: 'Target' 
+      position: teamLead?.position,
+      label: "Target",
     },
     position: center,
   });
@@ -115,8 +114,8 @@ export function CreateNodesAndEdges() {
   restTeamUsers?.forEach((i, index) => {
     const degrees = index * (360 / restTeamUsers.length);
     const radians = degrees * (Math.PI / 180);
-    const x = 250 * Math.cos(radians) + center.x;
-    const y = 250 * Math.sin(radians) + center.y;
+    const x = 350 * Math.cos(radians) + center.x;
+    const y = 350 * Math.sin(radians) + center.y;
 
     nodes.push({
       id: `${i.id}`,
@@ -126,7 +125,8 @@ export function CreateNodesAndEdges() {
         first_name: i.first_name,
         last_name: i.last_name,
         photo: i.photo,
-        label: 'Source'
+        position: i.position,
+        label: "Source",
       },
       position: { x, y },
     });

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import styles from "./company-card.module.css";
 
@@ -19,10 +19,7 @@ function CompanyCard({ data }) {
 
   const handleUserShow = () => {
     dispatch(loadWorker(data.id));
-    navigate(
-      `/users/${data.id}`
-      // ,  { replace: true }
-    );
+    navigate(`/users/${data.id}`);
   };
 
   return (
@@ -41,7 +38,6 @@ function CompanyCard({ data }) {
               <Button
                 htmlType="button"
                 type="link"
-                // ghost
                 onClick={handleUserShow}
                 className={styles.company__card_link}
               >

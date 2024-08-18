@@ -74,7 +74,7 @@ function TeamCard({ user }) {
                 <Button
                   htmlType="button"
                type="link"
-                  ghost
+                
                   onClick={handleTeamShow}
                   className={styles.team_card__team_link }
                 >

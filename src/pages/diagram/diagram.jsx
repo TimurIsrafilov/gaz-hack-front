@@ -13,7 +13,7 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
-import Sidebar from "./Sidebar";
+import Sidebar from "../../components/diagram-sidebar/diagram-sidebar";
 import { DnDProvider, useDnD } from "./DnDContext";
 
 import { CloseOutlined } from "@ant-design/icons";

@@ -21,6 +21,7 @@ import SidebarTeam from "../../components/sidebar-team/sidebar-team";
 import { getSidebarTeam } from "../../services/sidebar/reducer";
 import { selectProjects } from "../../services/projects/reducer";
 import DiagramUser from "../../components/diagram-user/diagram-user";
+import TeamUser from "../../components/team-user/team-user";
 
 const Team = () => {
   const sidebarTeamId = useSelector(getSidebarTeam);
@@ -32,7 +33,7 @@ const Team = () => {
   const { nodes: initialNodes, edges: initialEdges } = CreateNodesAndEdges();
 
   const nodeTypes = {
-    team_card_company: DiagramUser,
+    team_card_company: TeamUser,
     // team_card_company: TeamUser,
   };
 

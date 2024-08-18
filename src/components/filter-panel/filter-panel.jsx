@@ -96,7 +96,7 @@ function FilterPanel(props) {
     });
   });
 
-  // const x = companyDiagram?.teams.slice().sort( (a, b) => a.name - b.name);
+
 
   const optionTeams = [];
   companyDiagram?.teams.map((item) => {

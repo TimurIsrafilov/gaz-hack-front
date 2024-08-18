@@ -4,7 +4,7 @@ import { Handle, Position } from "@xyflow/react";
 
 import user from "./../../images/user.svg";
 
-function DiagramNewUser({data}) {
+function DiagramNewUser({ data }) {
   return (
     <div className={styles.diagram_new_user}>
       <Handle type="source" position={Position.Bottom} />

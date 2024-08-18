@@ -28,7 +28,7 @@ function SidebarTeam({ item }) {
       {item ? (
         <div className={styles.sidebar_team__container}>
           <h3 className={styles.sidebar_team__point}>{item.name}</h3>
-          <div className={styles.sidebar_team__point}>Perfomance команды</div>
+          <div className={styles.sidebar_team__point}>Performance команды</div>
           <p className={styles.sidebar_team__text}>{item.performance}</p>
           <div className={styles.sidebar_team__point}>Описание</div>
           <p className={styles.sidebar_team__text}>{item.description}</p>

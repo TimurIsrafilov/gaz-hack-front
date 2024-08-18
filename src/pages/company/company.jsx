@@ -53,7 +53,7 @@ const Company = () => {
   const dagreGraph = new dagre.graphlib.Graph();
   dagreGraph.setDefaultEdgeLabel(() => ({}));
 
-  const nodeWidth = 300;
+  const nodeWidth = 250;
   const nodeHeight = 230;
 
   const getLayoutedElements = (nodes, edges) => {

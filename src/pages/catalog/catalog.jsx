@@ -132,10 +132,18 @@ function Catalog() {
         </Button>
       )}
       {catalogCardsToShow?.length > 0 ? (
-        <div className={styles.catalog__grid_container}>
-          {catalogCardsToShow.map((item) => (
-            <CatalogCard item={item} key={uuidv4()} />
-          ))}
+        <div
+          className={
+            isFilterOpened
+              ? styles.catalog__grid_cover
+              : styles.catalog__grid_cover_closed
+          }
+        >
+          <div className={styles.catalog__grid_container}>
+            {catalogCardsToShow.map((item) => (
+              <CatalogCard item={item} key={uuidv4()} />
+            ))}
+          </div>
         </div>
       ) : (
         filterElements && (

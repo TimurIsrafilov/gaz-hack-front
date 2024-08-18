@@ -14,13 +14,20 @@
     position: fixed;
 }
 
+.catalog__grid_cover {
+    margin: 0 auto 0 336px;
+}
+
+.catalog__grid_cover_closed {
+    margin: 0 auto 0 auto;
+}
+
 .catalog__grid_container {
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: repeat(6, 1fr);
     row-gap: 24px;
     column-gap: 24px;
-    margin: 0 auto 0 336px;
     padding: 72px 24px;
 }
 

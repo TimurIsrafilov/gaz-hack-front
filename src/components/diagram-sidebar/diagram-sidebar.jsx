@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./sidebar.module.css";
+import styles from "./diagram-sidebar.module.css";
 
 const Drag = () => {
   const onDragStart = (event, nodeType) => {
