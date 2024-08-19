@@ -61,5 +61,3 @@ Web-приложение для получения информации о со�
 
 Тимур Исрафилов
 [![Telegram Badge](https://img.shields.io/badge/-timurisrafilov-blue?style=flat&logo=Telegram&logoColor=white)](https://t.me/timooooon11)
-
-
