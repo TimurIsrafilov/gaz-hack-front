@@ -1,6 +1,6 @@
 # Проект организационной структуры компании
 
-## Описание проекта
+## Описание проекта:
 
 Web-приложение для получения информации о сотрудниках, их должностях, командах, департаментах и проектах. Основная цель проекта — обеспечить удобный и эффективный способ отслеживания и управления ресурсами компании.
 
@@ -8,73 +8,56 @@ Web-приложение для получения информации о со�
 
 [https://timurisrafilov.github.io/gaz-hack-front/](https://timurisrafilov.github.io/gaz-hack-front/)
 
-## Команды для запуска проекта
+## Команды для сборки проекта:
 
+склонировать реппозиторий
+###  `git clone https://github.com/TimurIsrafilov/gaz-hack-front.git`
+
+зайти в папку проекта
+###  `cd gaz-hack-front`
+
+установить зависимости
+###  `npm i`
+
+## Команды для запуска проекта:
+
+запустить дев-режим
 ### `npm start`
+Открыть [http://localhost:3000](http://localhost:3000)
 
+запустить прод-режим
 ### `npm run build`
 
-### `npm run deploy`
+## Использован стек технологий:
 
-npm run deploy   
+- <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="reactjs" alt="reactjs" width="20" height="20"/> - **ReactJS** - библиотека JavaScript [https://react.dev/](https://react.dev/)
+- <img src="https://github.com/devicons/devicon/blob/master/icons/redux/redux-original.svg" title="redux" alt="redux" width="20" height="20"/> - **Redux** - стейт-менеджер для ReactJS [https://redux.js.org/](https://redux.js.org/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Ссылки на библиотеки, иконки и шрифты:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Ant Design** - система пользовательского интерфейса,  [https://ant.design/](https://ant.design/) - использованы формы, инпуты, чекбоксы, выпадающее меню, кнопки, иконки, прелоадер, таги визуализации шрифта
 
-### `npm test`
+- **React Flow** - система графического интерфейса [https://reactflow.dev/](https://reactflow.dev/) - использована для графического построения страниц "структура компании" и "организационная диаграмма"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Dagre D3** - система графического построения [https://github.com/dagrejs/dagre-d3/](https://github.com/dagrejs/dagre-d3/) - использована в дополнение для React Flow для автоматического выстраивания графических элементов схем
 
-### `npm run build`
+## Реализованный функционал:
+- Проект привязан к получаемой с бэкенда информации о сотрудниках и проектах в компании
+- Ввиду сжатых сроков и неприоритетности этап аутентификации был пропущен
+- Стартовая страница - страница пользователя, на которую он попадает после авторизации
+- Реализован функционал поиска по имени и фамилии сотрудника
+- Реализован функционал фильтров для быстрого поиска сотрудников
+- Реализована штатная структура в компании в графическом представлении карточек сотрудников с соответствующими связями
+- Реализована структура проектов компании в графическом представлении, присутствует возможность добавления новых пользователей
+- Предварительно проработана страница команды
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Что можно улучшить:
+- Графическое представление организационной диаграммы не соответствует макету
+- Обеспечить возможность при перетаскивании сотрудников обновлять составы команд, связать с бэкендом
+- Реализовать страницу редактирования данных сотрудников
+- Добавить функционал авторизации
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Команда разработчиков:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Тимур Исрафилов
+[![Telegram Badge](https://img.shields.io/badge/-timurisrafilov-blue?style=flat&logo=Telegram&logoColor=white)](https://t.me/timooooon11)
