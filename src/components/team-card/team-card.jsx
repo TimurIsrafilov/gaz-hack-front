@@ -13,21 +13,26 @@ import { setSidebarTeam } from "../../services/sidebar/reducer";
 
 import { TEAM } from "../../utils/constants";
 
+// changes to replace missed backend data to mock data
+import { users as companyStructure } from "../../utils/mockdata";
+import { projects as companyDiagram } from "../../utils/mockdata";
+
 function TeamCard({ user }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const companyStructure = useSelector(selectUsers);
-  const companyDiagram = useSelector(selectProjects);
+  // changes to replace missed backend data to mock data
+  // const companyStructure = useSelector(selectUsers);
+  // const companyDiagram = useSelector(selectProjects);
 
   const location = useLocation();
 
   const catalogLocation = location.pathname === "/";
 
-  const projects = companyDiagram?.components.find(
+  const projects = companyDiagram?.components?.find(
     (i) => i.id === user.componentId
   );
-  const teams = companyDiagram?.teams.find((i) => i.id === user.teamId);
+  const teams = companyDiagram?.teams?.find((i) => i.id === user.teamId);
   const teamUsers = [];
 
   teams?.usersId.forEach((id) => {

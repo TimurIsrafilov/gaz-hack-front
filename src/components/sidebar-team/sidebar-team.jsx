@@ -11,12 +11,16 @@ import { selectUsers } from "../../services/users/reducer";
 
 import { TEAM } from "../../utils/constants";
 
+// changes to replace missed backend data to mock data
+import { users as companyStructure } from "../../utils/mockdata";
+
 function SidebarTeam({ item }) {
   const location = useLocation();
 
   const navigate = useNavigate();
 
-  const companyStructure = useSelector(selectUsers);
+  // changes to replace missed backend data to mock data
+  // const companyStructure = useSelector(selectUsers);
 
   const lead = companyStructure?.find((i) => i.id === item?.team_leadId);
 

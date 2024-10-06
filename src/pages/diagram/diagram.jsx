@@ -29,6 +29,7 @@ import Sidebar from "../../components/diagram-sidebar/diagram-sidebar";
 import SidebarTeam from "../../components/sidebar-team/sidebar-team";
 import SidebarComponent from "../../components/sidebar-component/sidebar-component";
 
+// changes to replace missed backend data to mock data
 import { selectUsers } from "../../services/users/reducer";
 import { selectProjects } from "../../services/projects/reducer";
 
@@ -45,14 +46,19 @@ import {
 import DiagramNewUser from "../../components/diagram-new-user/diagram-new-user";
 import { Button } from "antd";
 
+// changes to replace missed backend data to mock data
+import { users as companyStructure } from "../../utils/mockdata";
+import { projects as companyDiagram } from "../../utils/mockdata";
+
 const Diagram = () => {
   const dispatch = useDispatch();
 
   let id = 0;
   const getId = () => `dndnode_${id++}`;
 
-  const companyStructure = useSelector(selectUsers);
-  const companyDiagram = useSelector(selectProjects);
+  // changes to replace missed backend data to mock data
+  // const companyStructure = useSelector(selectUsers);
+  // const companyDiagram = useSelector(selectProjects);
   const isSidebarOpen = useSelector(getSidebarStatus);
   const sidebarUserId = useSelector(getSidebarUser);
   const sidebarTeamId = useSelector(getSidebarTeam);
@@ -61,10 +67,10 @@ const Diagram = () => {
   const sidebarUser = companyStructure?.find(
     (i) => i.id === Number(sidebarUserId)
   );
-  const sidebarTeam = companyDiagram?.teams.find(
+  const sidebarTeam = companyDiagram?.teams?.find(
     (i) => i.id === Number(sidebarTeamId)
   );
-  const sidebarComponent = companyDiagram?.components.find(
+  const sidebarComponent = companyDiagram?.components?.find(
     (i) => i.id === Number(sidebarComponentId)
   );
 
@@ -139,7 +145,7 @@ const Diagram = () => {
   let initialEdges = [];
   let productTeams = [];
 
-  companyDiagram?.teams.map((item) => {
+  companyDiagram?.teams?.map((item) => {
     if (
       !item.name.includes("Маркетинг") &&
       !item.name.includes("Менеджмент") &&
@@ -150,7 +156,7 @@ const Diagram = () => {
     return companyDiagram;
   });
 
-  companyDiagram?.components.map((item) => {
+  companyDiagram?.components?.map((item) => {
     initialNodes.push({
       id: `${item.id}`,
       position: {
@@ -207,7 +213,7 @@ const Diagram = () => {
     return initialNodes;
   });
 
-  companyDiagram?.teams.map((item) => {
+  companyDiagram?.teams?.map((item) => {
     initialEdges.push({
       id: `e${item.id}-${item.componentIds}`,
       source: `${item.id}`,

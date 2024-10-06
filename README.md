@@ -8,25 +8,40 @@ Web-приложение для получения информации о со�
 
 [https://timurisrafilov.github.io/gaz-hack-front/](https://timurisrafilov.github.io/gaz-hack-front/)
 
+## Видео туториал как пользоваться приложением и об основных функциях:
+
+[https://disk.yandex.ru/i/g2ijcdTieqADCA](https://disk.yandex.ru/i/g2ijcdTieqADCA)
+
 ## Команды для сборки проекта:
 
 склонировать реппозиторий
-###  `git clone https://github.com/TimurIsrafilov/gaz-hack-front.git`
+```bash
+git clone https://github.com/TimurIsrafilov/gaz-hack-front.git
+```
 
 зайти в папку проекта
-###  `cd gaz-hack-front`
+```bash
+cd gaz-hack-front
+```
 
 установить зависимости
-###  `npm i`
+```bash
+npm i
+```
 
 ## Команды для запуска проекта:
 
 запустить дев-режим
-### `npm start`
+```bash
+npm start
+```
+
 Открыть [http://localhost:3000](http://localhost:3000)
 
 запустить прод-режим
-### `npm run build`
+```bash
+npm run build
+```
 
 ## Использован стек технологий:
 

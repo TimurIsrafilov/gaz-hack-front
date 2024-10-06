@@ -9,9 +9,14 @@ import styles from "./filter-panel.module.css";
 import { selectUsers } from "../../services/users/reducer";
 import { selectProjects } from "../../services/projects/reducer";
 
+// changes to replace missed backend data to mock data
+import { users as companyStructure } from "../../utils/mockdata";
+import { projects as companyDiagram } from "../../utils/mockdata";
+
 function FilterPanel(props) {
-  const companyStructure = useSelector(selectUsers);
-  const companyDiagram = useSelector(selectProjects);
+  // changes to replace missed backend data to mock data
+  // const companyStructure = useSelector(selectUsers);
+  // const companyDiagram = useSelector(selectProjects);
 
   const [form] = Form.useForm();
   const [checkedFullTime, setCheckedFullTime] = useState(false);
@@ -90,7 +95,7 @@ function FilterPanel(props) {
   });
 
   const optionDepartments = [];
-  companyDiagram?.departments.map((item) => {
+  companyDiagram?.departments?.map((item) => {
     optionDepartments.push({
       value: item.id,
       label: item.name,
@@ -99,7 +104,7 @@ function FilterPanel(props) {
   });
 
   const optionTeams = [];
-  companyDiagram?.teams.map((item) => {
+  companyDiagram?.teams?.map((item) => {
     optionTeams.push({
       value: item.id,
       label: item.name,
