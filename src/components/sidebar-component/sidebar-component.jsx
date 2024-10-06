@@ -8,8 +8,12 @@ import CompanyCard from "../company-card/company-card";
 
 import { selectUsers } from "../../services/users/reducer";
 
+// changes to replace missed backend data to mock data
+import { users as companyStructure } from "../../utils/mockdata";
+
 function SidebarComponent({ item }) {
-  const companyStructure = useSelector(selectUsers);
+  // changes to replace missed backend data to mock data
+  // const companyStructure = useSelector(selectUsers);
 
   const lead = companyStructure?.find((i) => i.id === item.component_leadId);
 

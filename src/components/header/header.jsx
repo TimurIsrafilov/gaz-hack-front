@@ -12,11 +12,15 @@ import gaz_logo from "../../images/gaz_logo.svg";
 
 import { DIAGRAM, COMPANY, CATALOG } from "../../utils/constants";
 
+// changes to replace missed backend data to mock data
+import { user } from "../../utils/mockdata";
+
 function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const user = useSelector(selectUser);
+  // changes to replace missed backend data to mock data
+  // const user = useSelector(selectUser);
 
   const { Search } = Input;
 

@@ -11,11 +11,16 @@ import TeamProfile from "../../components/team-profile/team-profile";
 import { selectUser } from "../../services/user/reducer";
 import { selectWorker } from "../../services/worker/reducer";
 
+// changes to replace missed backend data to mock data
+import { user } from "../../utils/mockdata";
+import { user as worker } from "../../utils/mockdata";
+
 function Profile() {
   const location = useLocation();
 
-  const user = useSelector(selectUser);
-  const worker = useSelector(selectWorker);
+  // changes to replace missed backend data to mock data
+  // const user = useSelector(selectUser);
+  // const worker = useSelector(selectWorker);
 
   const currentUser = location.pathname === "/" ? user : worker;
 

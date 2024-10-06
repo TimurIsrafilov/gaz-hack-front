@@ -16,8 +16,12 @@ import CompanyCard from "../../components/company-card/company-card";
 
 import { selectUsers } from "../../services/users/reducer";
 
+// changes to replace missed backend data to mock data
+import { users as companyStructure } from "../../utils/mockdata";
+
 const Company = () => {
-  const companyStructure = useSelector(selectUsers);
+  // changes to replace missed backend data to mock data
+  // const companyStructure = useSelector(selectUsers);
 
   const nodeTypes = {
     team_card_company: CompanyCard,

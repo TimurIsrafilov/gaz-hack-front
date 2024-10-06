@@ -13,8 +13,12 @@ import FilterPanel from "../../components/filter-panel/filter-panel";
 import { selectUsers } from "../../services/users/reducer";
 import { getSearchValue } from "../../services/search/reducer";
 
+// changes to replace missed backend data to mock data
+import { users as companyStructure } from "../../utils/mockdata";
+
 function Catalog() {
-  const companyStructure = useSelector(selectUsers);
+  // changes to replace missed backend data to mock data
+  // const companyStructure = useSelector(selectUsers);
 
   const [catalogCardsToShow, setcatalogCardsToShow] =
     useState(companyStructure);
