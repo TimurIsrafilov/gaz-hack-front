@@ -29,7 +29,7 @@ install dependencies
 npm i
 ```
 
-## Команды для запуска проекта:
+## Commands for app run:
 
 run dev mode
 ```bash
